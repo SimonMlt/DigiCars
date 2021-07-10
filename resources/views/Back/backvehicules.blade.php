@@ -13,7 +13,7 @@
                data-search="true"
                data-show-columns="true"
                data-toolbar="#toolbar"
-               >
+        >
             <thead>
             <tr>
                 <th data-field="marque" data-sortable="true">Marque</th>
@@ -33,21 +33,21 @@
             </thead>
             <tbody>
             @foreach ($vehicules as $vehicule)
-            <tr>
-                <td>{{ $vehicule->marque }}</td>
-                <td>{{ $vehicule->modele }}</td>
-                <td>{{ $vehicule->annee }}</td>
-                <td>{{ $vehicule->energie }}</td>
-                <td>{{ $vehicule->finition }}</td>
-                <td>{{ $vehicule->bdv }}</td>
-                <td>{{ $vehicule->ce }}</td>
-                <td>{{ $vehicule->ci }}</td>
-                <td>{{ $vehicule->puissancedin }} ch</td>
-                <td>{{ $vehicule->puissancefiscale }} CV</td>
-                <td>{{ $vehicule->portes }}</td>
-                <td>{{ $vehicule->places }}</td>
-                <td><a class="btn btn-primary float-right mt-4" href="{{ url('admin/vehicules/edit/'.$vehicule->id) }}" >Modifier</a></td>
-            </tr>
+                <tr>
+                    <td>{{ $vehicule->marque }}</td>
+                    <td>{{ $vehicule->modele }}</td>
+                    <td>{{ $vehicule->annee }}</td>
+                    <td>{{ $vehicule->energie }}</td>
+                    <td>{{ $vehicule->finition }}</td>
+                    <td>{{ $vehicule->bdv }}</td>
+                    <td>{{ $vehicule->ce }}</td>
+                    <td>{{ $vehicule->ci }}</td>
+                    <td>{{ $vehicule->puissancedin }} ch</td>
+                    <td>{{ $vehicule->puissancefiscale }} CV</td>
+                    <td>{{ $vehicule->portes }}</td>
+                    <td>{{ $vehicule->places }}</td>
+                    <td><a class="btn btn-primary float-right mt-4" href="{{ url('admin/vehicules/edit/'.$vehicule->id) }}" >Modifier</a></td>
+                </tr>
             @endforeach
             </tbody>
         </table>
