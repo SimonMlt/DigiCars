@@ -113,7 +113,7 @@
             $eventNum = 0;
             $today = $date==date('Y-m-d')? "today" : "";
             if($dayname=="saturday" || $dayname=="sunday" ){
-                $calendar.="<td><h4>$currentDay</h4> <button class='btn btn-secondary btn-xs'>Fermé</button>";
+                $calendar.="<td class='$today'><h4>$currentDay</h4> <button class='btn btn-secondary btn-xs'>Fermé</button>";
             }elseif($date<date('Y-m-d')){
                 $calendar.="<td><h4>$currentDay</h4> <button class='btn btn-secondary disabled btn-xs'>Passé</button>";
             }else{
