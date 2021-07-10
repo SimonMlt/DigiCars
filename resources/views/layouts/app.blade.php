@@ -109,7 +109,7 @@
     </div>
 </header>
 <!-- ***** Header Area End ***** -->
-@if (Route::is('home'))
+@if (Route::is('home') or Route::is('index'))
     <!-- ***** Main Banner Area Start ***** -->
     <div class="main-banner" id="top">
         <video autoplay muted loop id="bg-video">

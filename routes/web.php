@@ -21,15 +21,15 @@ Route::get('/', function () {
 // Authentification
 Auth::routes();
 
-Route::get('/', 'HomeController@index')->name('home');
+Route::get('/accueil', 'HomeController@index')->name('home');
 
 Auth::routes();
 
-Route::get('/', 'HomeController@index')->name('home');
+Route::get('/accueil', 'HomeController@index')->name('home');
 
 Auth::routes();
 
-Route::get('/', 'HomeController@index')->name('home');
+Route::get('/accueil', 'HomeController@index')->name('home');
 
 
 
