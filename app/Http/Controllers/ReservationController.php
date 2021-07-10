@@ -10,11 +10,13 @@ class ReservationController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Http\Response|\Illuminate\View\View
      */
     public function index()
     {
         //
+        $reservations = Reservation::get()->all();
+        return view('reservationdates', compact('reservations'));
     }
 
     /**
@@ -25,6 +27,7 @@ class ReservationController extends Controller
     public function create()
     {
         //
+
     }
 
     /**

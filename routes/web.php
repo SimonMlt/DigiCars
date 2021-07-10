@@ -32,7 +32,12 @@ Auth::routes();
 Route::get('/accueil', 'HomeController@index')->name('home');
 
 
+// Partie Réservation
+Route::get('reservations/dates', 'ReservationController@index')->name('reservationsdates');
 
+
+
+// Partie Véhicule
 Route::get('vehicules', 'VehiculesController@index2')->name('vehicules');
 
 Route::group([
