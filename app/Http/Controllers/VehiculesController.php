@@ -19,6 +19,13 @@ class VehiculesController extends Controller
         return view('Back/backvehicules', compact('vehicules'));
     }
 
+    public function index2()
+    {
+        //
+        $vehicules = Vehicules::get()->all();
+        return view('vehicules', compact('vehicules'));
+    }
+
     /**
      * Show the form for creating a new resource.
      *

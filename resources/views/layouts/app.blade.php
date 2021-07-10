@@ -19,6 +19,9 @@
 
     <title>DigiCars</title>
 
+    {{--    Table CSS--}}
+    <link rel="stylesheet" href="https://unpkg.com/bootstrap-table@1.18.2/dist/bootstrap-table.min.css">
+
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/bootstrap.min.css') }}">
 
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/font-awesome.css') }}">
@@ -53,8 +56,8 @@
                     <!-- ***** Logo End ***** -->
                     <!-- ***** Menu Start ***** -->
                     <ul class="nav">
-                        <li><a href="/" class="active">Home</a></li>
-                        <li><a href="cars.html">Cars</a></li>
+                        <li><a href="/" class="active">Accueil</a></li>
+                        <li><a href="{{ route('vehicules') }}">Nos véhicules</a></li>
                         <li class="dropdown">
                             <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button"
                                aria-haspopup="true" aria-expanded="false">About</a>
@@ -164,6 +167,10 @@
 
 <!-- Global Init -->
 <script src="{{ asset('assets/js/custom.js') }}"></script>
+
+<!-- Table JS-->
+<script src="https://unpkg.com/bootstrap-table@1.18.2/dist/bootstrap-table.min.js"></script>
+<script src="https://unpkg.com/bootstrap-table@1.16.0/dist/locale/bootstrap-table-fr-FR.min.js"></script>
 
 </body>
 </html>

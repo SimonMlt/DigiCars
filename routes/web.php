@@ -21,27 +21,19 @@ Route::get('/', function () {
 // Authentification
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/accueil', 'HomeController@index')->name('home');
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/accueil', 'HomeController@index')->name('home');
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/accueil', 'HomeController@index')->name('home');
 
 
-//Route::get('admin/vehicules', 'VehiculesController@index')->name('adminvehicules');
-//
-//Route::get('admin/vehicules/create', 'VehiculesController@create');
-//Route::post('admin/vehicules/create', 'VehiculesController@store');
-//
-//Route::get('admin/vehicules/edit/{id}', 'VehiculesController@edit');
-//Route::post('admin/vehicules/edit/{id}', 'VehiculesController@update');
-//
-//Route::delete('admin/vehicules/delete/{id}', 'VehiculesController@destroy');
 
+Route::get('vehicules', 'VehiculesController@index2')->name('vehicules');
 
 Route::group([
     'middleware' => ['auth', 'admin']

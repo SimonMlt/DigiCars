@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container mt-5">
+    <div class="container mt-5" style="padding-top: 20px">
         <form method="POST" action="{{ url('vehicules/create') }}">
             @csrf
             <div class="form-group">
