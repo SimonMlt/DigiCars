@@ -93,7 +93,7 @@ function timeslots($duration,$cleanup, $start, $end){
 </head>
 
 <body>
-<div class="container" style="padding-top: 100px">
+<div class="container mt-5" style="padding-top: 20px">
     <h1 class="text-center">Horaire du
         <?php
         setlocale(LC_TIME, "fr_FR", "French");

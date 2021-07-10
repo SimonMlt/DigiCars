@@ -276,9 +276,9 @@
                 }
             }
 
-            .row{
-                margin-top: 20px;
-            }
+            /*.row{*/
+            /*    margin-top: 20px;*/
+            /*}*/
 
             .today{
                 background:#89E0FF;
@@ -290,9 +290,9 @@
     </head>
 
     <body>
-    <div class="container">
+    <div class="container mt-5">
         <div class="row">
-            <div class="col-md-12" style="padding-top: 100px">
+            <div class="col-md-12" style="padding-top: 20px">
                 <?php
                 $dateComponents = getdate();
                 if(isset($_GET['month']) && isset($_GET['year'])){
