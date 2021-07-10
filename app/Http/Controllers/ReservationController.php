@@ -19,14 +19,21 @@ class ReservationController extends Controller
         return view('reservationdates', compact('reservations'));
     }
 
+    public function index2()
+    {
+        //
+        return view('reservationvalider');
+    }
+
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Http\Response|\Illuminate\View\View
      */
     public function create()
     {
         //
+        return view('reservationheures');
 
     }
 
@@ -34,11 +41,20 @@ class ReservationController extends Controller
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function store(Request $request)
     {
         //
+        $attributes = request()->validate([
+            'name'=>'required',
+            'email'=>'required',
+            'motif'=>'required',
+            'date'=>'required',
+            'timeslot'=>'required',
+        ]);
+        $reservations = Reservation::create($attributes);
+        return redirect()->route('reservationsvalider');
     }
 
     /**
@@ -84,5 +100,23 @@ class ReservationController extends Controller
     public function destroy(Reservation $reservation)
     {
         //
+    }
+
+    public function checkSlots($date){
+        $stmt = $mysqli->prepare("select * from bookings where date = ?");
+        $stmt->bind_param('s', $date);
+        $totalbookings = 0;
+        if($stmt->execute()){
+            $result = $stmt->get_result();
+            if($result->num_rows>0){
+                while($row = $result->fetch_assoc()){
+                    $totalbookings++;
+                }
+
+                $stmt->close();
+            }
+        }
+
+        return $totalbookings;
     }
 }

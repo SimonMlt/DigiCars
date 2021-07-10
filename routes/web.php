@@ -35,6 +35,12 @@ Route::get('/accueil', 'HomeController@index')->name('home');
 // Partie Réservation
 Route::get('reservations/dates', 'ReservationController@index')->name('reservationsdates');
 
+Route::get('reservations/valider', 'ReservationController@index2')->name('reservationsvalider');
+
+
+Route::get('reservations/heures', 'ReservationController@create');
+Route::post('reservations/heures', 'ReservationController@store');
+
 
 
 // Partie Véhicule
