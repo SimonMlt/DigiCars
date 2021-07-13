@@ -27,6 +27,7 @@ class CreateVehiculesTable extends Migration
             $table->integer('puissancefiscale');
             $table->integer('portes');
             $table->integer('places');
+            $table->integer('prix');
             $table->timestamps();
         });
     }

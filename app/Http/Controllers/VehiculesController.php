@@ -26,6 +26,13 @@ class VehiculesController extends Controller
         return view('vehicules', compact('vehicules'));
     }
 
+    public function details($id)
+    {
+        //
+        $vehicules = Vehicules::findOrFail($id);
+        return view('detailsvehicule', compact('vehicules'));
+    }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -59,6 +66,7 @@ class VehiculesController extends Controller
             'puissancefiscale'=>'required',
             'portes'=>'required',
             'places'=>'required',
+            'prix'=>'required',
         ]);
         $vehicules = Vehicules::create($attributes);
         return redirect()->route('adminvehicules');
@@ -110,6 +118,7 @@ class VehiculesController extends Controller
             'puissancefiscale'=>'required',
             'portes'=>'required',
             'places'=>'required',
+            'prix'=>'required',
         ]);
         $vehicules = Vehicules::findOrFail($id);
         $vehicules->update($attributes);

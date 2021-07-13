@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="container mt-5" style="padding-top: 20px">
-        <form method="POST" action="{{ url('vehicules/create') }}">
+        <form method="POST" action="{{ url('admin/vehicules/create') }}">
             @csrf
             <div class="form-group">
                 <label>Marque</label>
@@ -51,6 +51,10 @@
             <div class="form-group">
                 <label>Nombres de places</label>
                 <input type="text" class="form-control" name="places">
+            </div>
+            <div class="form-group">
+                <label>Prix</label>
+                <input type="text" class="form-control" name="prix">
             </div>
 
             <button type="submit" class="btn btn-primary float-right">Submit</button>

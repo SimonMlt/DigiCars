@@ -27,7 +27,8 @@
                 <th data-field="puissancedin" data-sortable="true">Puissance DIN</th>
                 <th data-field="puissancefiscale" data-sortable="true">Puissance fiscale</th>
                 <th data-field="portes" data-sortable="true">Nombres de portes</th>
-                <th data-field="places" data-sortable="true">Nombre de places</th>
+                <th data-field="places" data-sortable="true">Nombres de places</th>
+                <th data-field="prix" data-sortable="true">Prix</th>
                 <th data-field="edit">Modifier</th>
             </tr>
             </thead>
@@ -46,6 +47,7 @@
                     <td>{{ $vehicule->puissancefiscale }} CV</td>
                     <td>{{ $vehicule->portes }}</td>
                     <td>{{ $vehicule->places }}</td>
+                    <td>{{ $vehicule->prix }}€</td>
                     <td><a class="btn btn-primary float-right mt-4" href="{{ url('admin/vehicules/edit/'.$vehicule->id) }}" >Modifier</a></td>
                 </tr>
             @endforeach
