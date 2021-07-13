@@ -43,159 +43,81 @@
                     <div class="row">
                         <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
                             <div class="form-group">
-                                <label>Used/New:</label>
+                                <label>Marque:</label>
 
                                 <select>
-                                    <option value="">All</option>
-                                    <option value="new">New vehicle</option>
-                                    <option value="used">Used vehicle</option>
+                                    <option value="">-- Tous --</option>
+                                    <option value="">-- Tous --</option>
+                                    <option value="">-- Tous --</option>
+                                    <option value="">-- Tous --</option>
+                                    <option value="">-- Tous --</option>
+                                    <option value="">-- Tous --</option>
+                                    <option value="">-- Tous --</option>
                                 </select>
                             </div>
                         </div>
 
                         <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
                             <div class="form-group">
-                                <label>Vehicle Type:</label>
+                                <label>Modèle:</label>
 
                                 <select>
-                                    <option value="">--All --</option>
-                                    <option value="">--All --</option>
-                                    <option value="">--All --</option>
-                                    <option value="">--All --</option>
-                                    <option value="">--All --</option>
+                                    <option value="">-- Tous --</option>
+                                    <option value="">-- Tous --</option>
+                                    <option value="">-- Tous --</option>
+                                    <option value="">-- Tous --</option>
                                 </select>
                             </div>
                         </div>
 
                         <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
                             <div class="form-group">
-                                <label>Make:</label>
+                                <label>Prix:</label>
 
                                 <select>
-                                    <option value="">-- All --</option>
-                                    <option value="">-- All --</option>
-                                    <option value="">-- All --</option>
-                                    <option value="">-- All --</option>
-                                    <option value="">-- All --</option>
-                                    <option value="">-- All --</option>
-                                    <option value="">-- All --</option>
+                                    <option value="">-- Tous --</option>
+                                    <option value="">-- Tous --</option>
+                                    <option value="">-- Tous --</option>
+                                    <option value="">-- Tous --</option>
                                 </select>
                             </div>
                         </div>
 
                         <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
                             <div class="form-group">
-                                <label>Model:</label>
+                                <label>Boîte de vitesse:</label>
 
                                 <select>
-                                    <option value="">-- All --</option>
-                                    <option value="">-- All --</option>
-                                    <option value="">-- All --</option>
-                                    <option value="">-- All --</option>
+                                    <option value="">-- Tous --</option>
+                                    <option value="">-- Tous --</option>
+                                    <option value="">-- Tous --</option>
+                                    <option value="">-- Tous --</option>
                                 </select>
                             </div>
                         </div>
 
                         <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
                             <div class="form-group">
-                                <label>Price:</label>
+                                <label>Nombre de portes:</label>
 
                                 <select>
-                                    <option value="">-- All --</option>
-                                    <option value="">-- All --</option>
-                                    <option value="">-- All --</option>
-                                    <option value="">-- All --</option>
+                                    <option value="">-- Tous --</option>
+                                    <option value="">-- Tous --</option>
+                                    <option value="">-- Tous --</option>
+                                    <option value="">-- Tous --</option>
                                 </select>
                             </div>
                         </div>
 
                         <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
                             <div class="form-group">
-                                <label>Mileage:</label>
+                                <label>Nombre de places:</label>
 
                                 <select>
-                                    <option value="">-- All --</option>
-                                    <option value="">-- All --</option>
-                                    <option value="">-- All --</option>
-                                    <option value="">-- All --</option>
-                                </select>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
-                            <div class="form-group">
-                                <label>Engine size:</label>
-
-                                <select>
-                                    <option value="">-- All --</option>
-                                    <option value="">-- All --</option>
-                                    <option value="">-- All --</option>
-                                    <option value="">-- All --</option>
-                                </select>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
-                            <div class="form-group">
-                                <label>Power:</label>
-
-                                <select>
-                                    <option value="">-- All --</option>
-                                    <option value="">-- All --</option>
-                                    <option value="">-- All --</option>
-                                    <option value="">-- All --</option>
-                                </select>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
-                            <div class="form-group">
-                                <label>Fuel:</label>
-
-                                <select>
-                                    <option value="">-- All --</option>
-                                    <option value="">-- All --</option>
-                                    <option value="">-- All --</option>
-                                    <option value="">-- All --</option>
-                                </select>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
-                            <div class="form-group">
-                                <label>Gearbox:</label>
-
-                                <select>
-                                    <option value="">-- All --</option>
-                                    <option value="">-- All --</option>
-                                    <option value="">-- All --</option>
-                                    <option value="">-- All --</option>
-                                </select>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
-                            <div class="form-group">
-                                <label>Doors:</label>
-
-                                <select>
-                                    <option value="">-- All --</option>
-                                    <option value="">-- All --</option>
-                                    <option value="">-- All --</option>
-                                    <option value="">-- All --</option>
-                                </select>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
-                            <div class="form-group">
-                                <label>Number of seats:</label>
-
-                                <select>
-                                    <option value="">-- All --</option>
-                                    <option value="">-- All --</option>
-                                    <option value="">-- All --</option>
-                                    <option value="">-- All --</option>
+                                    <option value="">-- Tous --</option>
+                                    <option value="">-- Tous --</option>
+                                    <option value="">-- Tous --</option>
+                                    <option value="">-- Tous --</option>
                                 </select>
                             </div>
                         </div>

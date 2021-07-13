@@ -26,8 +26,8 @@
                 <th data-field="ci" data-sortable="true">Couleur intérieure</th>
                 <th data-field="puissancedin" data-sortable="true">Puissance DIN</th>
                 <th data-field="puissancefiscale" data-sortable="true">Puissance fiscale</th>
-                <th data-field="portes" data-sortable="true">Nombres de portes</th>
-                <th data-field="places" data-sortable="true">Nombres de places</th>
+                <th data-field="portes" data-sortable="true">Nombre de portes</th>
+                <th data-field="places" data-sortable="true">Nombre de places</th>
                 <th data-field="prix" data-sortable="true">Prix</th>
                 <th data-field="edit">Modifier</th>
             </tr>

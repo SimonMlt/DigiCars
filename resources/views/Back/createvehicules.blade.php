@@ -45,11 +45,11 @@
                 <input type="text" class="form-control" name="puissancefiscale">
             </div>
             <div class="form-group">
-                <label>Nombres de portes</label>
+                <label>Nombre de portes</label>
                 <input type="text" class="form-control" name="portes">
             </div>
             <div class="form-group">
-                <label>Nombres de places</label>
+                <label>Nombre de places</label>
                 <input type="text" class="form-control" name="places">
             </div>
             <div class="form-group">

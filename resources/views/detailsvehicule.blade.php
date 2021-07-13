@@ -113,13 +113,13 @@
                             </div>
 
                             <div class="col-sm-6">
-                                <label>Nombres de places</label>
+                                <label>Nombre de places</label>
 
                                 <p>{{ $vehicules->places }}</p>
                             </div>
 
                             <div class="col-sm-6">
-                                <label>Nombres de portes</label>
+                                <label>Nombre de portes</label>
 
                                 <p>{{ $vehicules->portes }}</p>
                             </div>
