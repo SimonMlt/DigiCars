@@ -16,7 +16,14 @@ class VehiculesController extends Controller
     {
         //
         $vehicules = Vehicules::get()->all();
-        return view('backvehicules', compact('vehicules'));
+        return view('Back/backvehicules', compact('vehicules'));
+    }
+
+    public function index2()
+    {
+        //
+        $vehicules = Vehicules::get()->all();
+        return view('vehicules', compact('vehicules'));
     }
 
     /**
@@ -27,7 +34,7 @@ class VehiculesController extends Controller
     public function create()
     {
         //
-        return view('createvehicules');
+        return view('Back/createvehicules');
     }
 
     /**
@@ -54,7 +61,7 @@ class VehiculesController extends Controller
             'places'=>'required',
         ]);
         $vehicules = Vehicules::create($attributes);
-        return redirect()->route('vehicules');
+        return redirect()->route('adminvehicules');
     }
 
     /**
@@ -78,7 +85,7 @@ class VehiculesController extends Controller
     {
         //
         $vehicules = Vehicules::findOrFail($id);
-        return view ('editvehicules', compact('vehicules'));
+        return view ('Back/editvehicules', compact('vehicules'));
     }
 
     /**
@@ -106,7 +113,7 @@ class VehiculesController extends Controller
         ]);
         $vehicules = Vehicules::findOrFail($id);
         $vehicules->update($attributes);
-        return redirect()->route('vehicules');
+        return redirect()->route('adminvehicules');
     }
 
     /**
@@ -120,6 +127,6 @@ class VehiculesController extends Controller
         //
         $vehicules = Vehicules::findOrFail($id);
         $vehicules->delete();
-        return redirect()->route('vehicules');
+        return redirect()->route('adminvehicules');
     }
 }
