@@ -15,11 +15,11 @@ class CreateVehiculesTable extends Migration
     {
         Schema::create('vehicules', function (Blueprint $table) {
             $table->id();
+            $table->string('filename');
             $table->string('marque');
             $table->string('modele');
             $table->integer('annee');
             $table->string('energie');
-            $table->string('finition');
             $table->string('bdv');
             $table->string('ce');
             $table->string('ci');
@@ -28,6 +28,11 @@ class CreateVehiculesTable extends Migration
             $table->integer('portes');
             $table->integer('places');
             $table->integer('prix');
+            $table->text('description');
+            $table->string('option1')->nullable();
+            $table->string('option2')->nullable();
+            $table->string('option3')->nullable();
+            $table->string('option4')->nullable();
             $table->timestamps();
         });
     }

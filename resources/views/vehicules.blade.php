@@ -25,7 +25,6 @@
                         <br>
                         <br>
                         <h2>Nos <em>Voitures</em></h2>
-                        <p>Ut consectetur, metus sit amet aliquet placerat, enim est ultricies ligula</p>
                     </div>
                 </div>
             </div>
@@ -138,7 +137,7 @@
                 <div class="col-lg-4">
                     <div class="trainer-item">
                         <div class="image-thumb">
-                            <img src="assets/images/product-1-720x480.jpg" alt="">
+                            <img src="{{ asset('storage/files/'.$vehicule->filename) }}" alt="">
                         </div>
                         <div class="down-content">
                             <span>

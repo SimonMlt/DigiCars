@@ -20,7 +20,6 @@
                 <th data-field="modele" data-sortable="true">Modèle</th>
                 <th data-field="annee" data-sortable="true">Année</th>
                 <th data-field="energie" data-sortable="true">Energie</th>
-                <th data-field="finition" data-sortable="true">Finition</th>
                 <th data-field="bdv" data-sortable="true">Boîte de vitesse</th>
                 <th data-field="ce" data-sortable="true">Couleur extérieure</th>
                 <th data-field="ci" data-sortable="true">Couleur intérieure</th>
@@ -39,7 +38,6 @@
                     <td>{{ $vehicule->modele }}</td>
                     <td>{{ $vehicule->annee }}</td>
                     <td>{{ $vehicule->energie }}</td>
-                    <td>{{ $vehicule->finition }}</td>
                     <td>{{ $vehicule->bdv }}</td>
                     <td>{{ $vehicule->ce }}</td>
                     <td>{{ $vehicule->ci }}</td>
