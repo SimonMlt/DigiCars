@@ -26,6 +26,13 @@ class VehiculesController extends Controller
         return view('vehicules', compact('vehicules'));
     }
 
+    public function index3()
+    {
+        //
+        $vehicules = Vehicules::latest()->take(3)->get();
+        return view('home', compact('vehicules'));
+    }
+
     public function details($id)
     {
         //

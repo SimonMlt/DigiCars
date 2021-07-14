@@ -49,6 +49,7 @@ Route::post('reservations/heures', 'ReservationController@store');
 
 // Partie Véhicule
 Route::get('vehicules', 'VehiculesController@index2')->name('vehicules');
+Route::get('/', 'VehiculesController@index3');
 Route::get('vehicules/details/{id}', 'VehiculesController@details')->name('detailsvehicules');
 
 Route::group([

@@ -110,25 +110,25 @@
     </div>
 </header>
 <!-- ***** Header Area End ***** -->
-@if (Route::is('home') or Route::is('index'))
-    <!-- ***** Main Banner Area Start ***** -->
-    <div class="main-banner" id="top">
-        <video autoplay muted loop id="bg-video">
-            <source src="assets/images/video.mp4" type="video/mp4"/>
-        </video>
+{{--@if (Route::is('home') or Route::is('index'))--}}
+{{--    <!-- ***** Main Banner Area Start ***** -->--}}
+{{--    <div class="main-banner" id="top">--}}
+{{--        <video autoplay muted loop id="bg-video">--}}
+{{--            <source src="assets/images/video.mp4" type="video/mp4"/>--}}
+{{--        </video>--}}
 
-        <div class="video-overlay header-text">
-            <div class="caption">
-                <h6>Lorem ipsum dolor sit amet</h6>
-                <h2>Best <em>car dealer</em> in town!</h2>
-                <div class="main-button">
-                    <a href="contact.html">Contact Us</a>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- ***** Main Banner Area End ***** -->
-@endif
+{{--        <div class="video-overlay header-text">--}}
+{{--            <div class="caption">--}}
+{{--                <h6>Lorem ipsum dolor sit amet</h6>--}}
+{{--                <h2>Best <em>car dealer</em> in town!</h2>--}}
+{{--                <div class="main-button">--}}
+{{--                    <a href="contact.html">Contact Us</a>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--        </div>--}}
+{{--    </div>--}}
+{{--    <!-- ***** Main Banner Area End ***** -->--}}
+{{--@endif--}}
 
 <div id="app">
     <main class="py-4">
