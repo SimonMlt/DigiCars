@@ -149,7 +149,7 @@
                                 </div>
                                 <div class="col-sm-6">
                                     <label>Email</label>
-                                    <p><a href="#">john@concessionnaire.com</a></p>
+                                    <p><a href="#">john@digicars.com</a></p>
                                 </div>
                             </div>
 
