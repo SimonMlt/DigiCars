@@ -57,7 +57,7 @@
                     <!-- ***** Menu Start ***** -->
                     <ul class="nav">
                         <li><a href="/" class="active">Accueil</a></li>
-                        <li><a href="{{ route('vehicules') }}">Nos véhicules</a></li>
+                        <li><a href="{{ route('vehicules') }}">Nos voitures</a></li>
                         <li><a href="{{ route('reservationsdates') }}">Réservations</a></li>
 {{--                        <li class="dropdown">--}}
 {{--                            <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button"--}}
@@ -85,7 +85,7 @@
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                     @if(Auth::user()->is_admin)
-                                    <a class="dropdown-item" href="{{ route('adminvehicules') }}">Nos véhicules</a>
+                                    <a class="dropdown-item" href="{{ route('adminvehicules') }}">Nos voitures</a>
                                     @endif
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
