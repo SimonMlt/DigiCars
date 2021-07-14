@@ -15,7 +15,9 @@
 
                         <label>Véhicule</label>
                         <select name="id_vehicule">
-                            <option value="1">Tesla Model S</option>
+                            @foreach($vehicules as $vehicule)
+                                <option value="{{ $vehicule->id }}">{{ $vehicule->marque }} {{ $vehicule->modele }}</option>
+                            @endforeach
                         </select>
 
                         <label>Quantité</label>
