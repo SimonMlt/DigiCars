@@ -157,7 +157,7 @@
 
                             <div class="row">
                                 <div class="col-sm-6">
-                                    <a href="{{ url('reservations/dates/'.$vehicule->id) }}"><button>Réserver un créneau</button></a>
+                                    <a href="{{ url('reservations/dates/'.$vehicules->id) }}"><button>Réserver un créneau</button></a>
                                 </div>
 
                             </div>
