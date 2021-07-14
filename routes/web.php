@@ -31,6 +31,10 @@ Auth::routes();
 
 Route::get('/accueil', 'HomeController@index')->name('home');
 
+// Page Contact
+Route::get('/contact', function () {
+    return view('contact');
+})->name('contact');
 
 // Partie Réservation
 Route::get('reservations/dates', 'ReservationController@index')->name('reservationsdates');

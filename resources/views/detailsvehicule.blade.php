@@ -145,7 +145,7 @@
                                 <div class="col-sm-6">
                                     <label>Numéro de téléphone</label>
 
-                                    <p>06 01 02 03 04</p>
+                                    <p>01 02 03 04 05</p>
                                 </div>
                                 <div class="col-sm-6">
                                     <label>Email</label>
