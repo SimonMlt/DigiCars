@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Echanges;
+use App\User;
+use App\Vehicules;
 use Illuminate\Http\Request;
 
 class EchangesController extends Controller
@@ -17,25 +19,44 @@ class EchangesController extends Controller
         //
     }
 
+    public function index2()
+    {
+        $users = User::get()->all();
+        return view('Back/createdevis', compact('users'));
+    }
+
+    public function index3()
+    {
+        $vehicules = Vehicules::get()->all();
+        return view('Back/createdevis', compact('vehicules'));
+    }
+
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Http\Response|\Illuminate\View\View
      */
     public function create()
     {
-        //
+        return view('Back/createdevis');
     }
 
     /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function store(Request $request)
     {
-        //
+        $attributes = request()->validate([
+            'id_client' => 'required',
+            'id_vehicule' => 'required',
+            'quantite' => 'required',
+            'total' => 'required',
+        ]);
+        $devis = Echanges::create($attributes);
+        return redirect()->route('createdevis');
     }
 
     /**

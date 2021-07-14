@@ -15,7 +15,6 @@ class CreateEchangesTable extends Migration
     {
         Schema::create('echanges', function (Blueprint $table) {
             $table->id();
-            $table->string('num_devis');
             $table->string('id_client');
             $table->string('id_vehicule');
             $table->string('quantite');
