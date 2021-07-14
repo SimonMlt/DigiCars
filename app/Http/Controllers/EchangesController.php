@@ -19,17 +19,6 @@ class EchangesController extends Controller
         //
     }
 
-    public function index2()
-    {
-        $users = User::get()->all();
-        return view('Back/createdevis', compact('users'));
-    }
-
-    public function index3()
-    {
-        $vehicules = Vehicules::get()->all();
-        return view('Back/createdevis', compact('vehicules'));
-    }
 
     /**
      * Show the form for creating a new resource.
@@ -38,7 +27,9 @@ class EchangesController extends Controller
      */
     public function create()
     {
-        return view('Back/createdevis');
+        $users = User::get()->all();
+        $vehicules = Vehicules::get()->all();
+        return view('Back/createdevis', compact('vehicules','users'));
     }
 
     /**

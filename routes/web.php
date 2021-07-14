@@ -36,6 +36,11 @@ Route::get('/contact', function () {
     return view('contact');
 })->name('contact');
 
+// Partie Echanges
+Route::get('admin/devis/create', 'EchangesController@create')->name('createdevis');
+Route::post('admin/devis/create', 'EchangesController@store');
+
+
 // Partie Réservation
 Route::get('reservations/dates', 'ReservationController@index')->name('reservationsdates');
 
@@ -66,11 +71,4 @@ Route::post('admin/vehicules/edit/{id}', 'VehiculesController@update');
 
 Route::delete('admin/vehicules/delete/{id}', 'VehiculesController@destroy');
 });
-
-
-// Partie Echanges
-Route::get('admin/devis/create', 'EchangesController@create')->name('createdevis');
-Route::post('admin/devis/create', 'EchangesController@store');
-Route::get('admin/devis/create', 'EchangesController@index2');
-Route::get('admin/devis/create', 'EchangesController@index3');
 
