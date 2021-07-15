@@ -1,5 +1,5 @@
 (function ($) {
-	
+
 	"use strict";
 
 	$(function() {
@@ -17,7 +17,7 @@
 	    $("header").removeClass("background-header");
 	  }
 	});
-	
+
 
 	$('.schedule-filter li').on('click', function() {
         var tsfilter = $(this).data('tsfilter');
@@ -44,11 +44,11 @@
 
 	// Scroll animation init
 	window.sr = new scrollReveal();
-	
+
 
 	// Menu Dropdown Toggle
 	if($('.menu-trigger').length){
-		$(".menu-trigger").on('click', function() {	
+		$(".menu-trigger").on('click', function() {
 			$(this).toggleClass('active');
 			$('.header-area .nav').slideToggle(200);
 		});
@@ -95,6 +95,12 @@
 			}
 		});
 	}
+
+    //MOUSE ANIM
+    TweenMax.to('.wheel',0.7,{'top':'50%',repeat: -1,yoyo:true});
+    $('#mouse').on('click',function(){
+        $('html,body').animate({scrollTop:$('#ancre1').offset().top-100},800);
+    });
 
 
 })(window.jQuery);

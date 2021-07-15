@@ -74,9 +74,9 @@
 {{--                        </li>--}}
                         <li><a href="{{ route('contact') }}">Contact</a></li>
                         @guest
-                            <li><a href="{{ route('login') }}">{{ __('Login') }}</a></li>
+                            <li><a href="{{ route('login') }}">{{ __('Connexion') }}</a></li>
                             @if (Route::has('register'))
-                                <li><a href="{{ route('register') }}">{{ __('Register') }}</a></li>
+                                <li><a href="{{ route('register') }}">{{ __('Inscription') }}</a></li>
                             @endif
                         @else
                             <li class="dropdown">
@@ -85,7 +85,8 @@
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                     @if(Auth::user()->is_admin)
-                                    <a class="dropdown-item" href="{{ route('adminvehicules') }}">Nos voitures</a>
+                                        <a class="dropdown-item" href="{{ route('adminvehicules') }}">Nos voitures</a>
+                                        <a class="dropdown-item" href="{{ route('admindevis') }}">Liste des devis</a>
                                     @endif
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();

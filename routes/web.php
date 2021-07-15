@@ -39,6 +39,7 @@ Route::get('/contact', function () {
 // Partie Echanges
 Route::get('admin/devis/create', 'EchangesController@create')->name('createdevis');
 Route::post('admin/devis/create', 'EchangesController@store');
+Route::get('admin/devis', 'EchangesController@index')->name('admindevis');
 
 
 // Partie Réservation
