@@ -1,3 +1,35 @@
+<style>
+    body {
+        -ms-overflow-style: none; /* for Internet Explorer, Edge */
+        scrollbar-width: none; /* for Firefox */
+        overflow-y: scroll;
+    }
+
+    body::-webkit-scrollbar {
+        display: none; /* for Chrome, Safari, and Opera */
+    }
+
+    #mouse {
+        position: absolute;
+        display: block;
+        width: 25px;
+        height: 42px;
+        border: 1px solid #fff;
+        border-radius: 20px;
+        left: calc(50% - 12.5px);
+        bottom: 10%;
+    }
+
+    .wheel {
+        width: 5px;
+        height: 5px;
+        background-color: #fff;
+        border-radius: 100%;
+        position: absolute;
+        left: calc(50% - 2.5px);
+        top: 10px;
+    }
+</style>
 @extends('layouts.app')
 
 @section('section')
@@ -12,6 +44,8 @@
                 <h6>Meilleur concessionnaire de vente de voitures électriques</h6>
                 <h2><em>DIGICARS</em> à Paris!</h2>
             </div>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.1/TweenMax.min.js"></script>
+            <a href="#" id="mouse"><div class="wheel"></div></a>
         </div>
     </div>
     <!-- ***** Cars Starts ***** -->
@@ -19,8 +53,8 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-6 offset-lg-3">
-                    <div class="section-heading">
-                        <h2>Les <em>coups de coeurs</em></h2>
+                    <div class="section-heading" id="ancre1">
+                        <h2>Les <em>nouveautés</em></h2>
                         <img src="assets/images/line-dec.png" alt="">
                         <p>La voiture
                             de vos rêves est ici,

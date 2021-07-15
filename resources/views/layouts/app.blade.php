@@ -74,9 +74,9 @@
 {{--                        </li>--}}
                         <li><a href="{{ route('contact') }}">Contact</a></li>
                         @guest
-                            <li><a href="{{ route('login') }}">{{ __('Login') }}</a></li>
+                            <li><a href="{{ route('login') }}">{{ __('Connexion') }}</a></li>
                             @if (Route::has('register'))
-                                <li><a href="{{ route('register') }}">{{ __('Register') }}</a></li>
+                                <li><a href="{{ route('register') }}">{{ __('Inscription') }}</a></li>
                             @endif
                         @else
                             <li class="dropdown">
