@@ -17,7 +17,8 @@ class EchangesController extends Controller
     public function index()
     {
         $devis = Echanges::get()->all();
-        return view('listedevis', compact('devis'));
+        $users = User::get()->all();
+        return view('listedevis', compact('devis','users'));
     }
 
 
@@ -28,9 +29,8 @@ class EchangesController extends Controller
      */
     public function create()
     {
-        $users = User::get()->all();
         $vehicules = Vehicules::get()->all();
-        return view('Back/createdevis', compact('vehicules','users'));
+        return view('Back/createdevis', compact('vehicules'));
     }
 
     /**
