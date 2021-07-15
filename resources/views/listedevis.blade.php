@@ -7,7 +7,7 @@
             <a href="{{ url('admin/devis/create/') }}"><button style="float: left;margin-left: 20px;" class="submit">Créer un devis</button></a><br><br>
         </div>
 
-        <table class="table">
+        <table class="table" style="text-align: center">
             <thead>
                 <tr>
                     <th scope="col">ID</th>
@@ -15,6 +15,7 @@
                     <th scope="col">Véhicule</th>
                     <th scope="col">Quantité</th>
                     <th scope="col">Total</th>
+                    <th></th>
                 </tr>
             </thead>
             <tbody>
@@ -25,6 +26,7 @@
                         <th>{{ $quote->id_vehicule }}</th>
                         <th>{{ $quote->quantite }}</th>
                         <th>{{ $quote->total }}€</th>
+                        <th><a href="#">Voir</a></th>
                     </tr>
                 @endforeach
             </tbody>
