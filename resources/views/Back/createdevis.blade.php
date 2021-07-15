@@ -23,10 +23,10 @@
                         </select>
 
                         <label>Quantité</label>
-                        <input type="number" class="form-control" name="quantite">
+                        <input type="number" id="quantite" class="form-control quantite" name="quantite">
 
                         <label for="total">Total</label>
-                        <input type="text" name="total" class="form-control price-input" readonly>
+                        <input type="text" name="total" id="total" class="form-control price-input" readonly>
                     </div>
                 </div>
                 <button type="submit" class="btn btn-primary float-right">Créer le devis</button>
@@ -34,11 +34,36 @@
         </div>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
         <script>
+            const quantite = document.querySelector(".quantite");
+
+            $('.quantite').on('change', function() {
+                $('.price-input')
+                    .val(
+                        $('.vehicle-type').find(':selected').data('price') * quantite.value
+                    );
+            });
+
             $('.vehicle-type').on('change', function() {
                 $('.price-input')
                     .val(
-                        $(this).find(':selected').data('price')
+                        $(this).find(':selected').data('price') * quantite.value
                     );
             });
+
+            /*
+            const prix = $('.price-input').val($(this).find(':selected').data('price'));
+            const total = document.querySelector("#total")
+            const quantite = document.querySelector("#quantite")
+            const modele = document.querySelector(".vehicle-type")
+
+            quantite.addEventListener('change', (event) => {
+                total.value = prix.value * quantite.value;
+            });
+
+            modele.addEventListener('change', (event) => {
+                total.value = prix.value * quantite.value;
+            });
+
+             */
         </script>
 @endsection
