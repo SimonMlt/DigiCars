@@ -20,14 +20,14 @@
                 <th data-field="modele" data-sortable="true">Modèle</th>
                 <th data-field="annee" data-sortable="true">Année</th>
                 <th data-field="energie" data-sortable="true">Energie</th>
-                <th data-field="finition" data-sortable="true">Finition</th>
                 <th data-field="bdv" data-sortable="true">Boîte de vitesse</th>
                 <th data-field="ce" data-sortable="true">Couleur extérieure</th>
                 <th data-field="ci" data-sortable="true">Couleur intérieure</th>
                 <th data-field="puissancedin" data-sortable="true">Puissance DIN</th>
                 <th data-field="puissancefiscale" data-sortable="true">Puissance fiscale</th>
-                <th data-field="portes" data-sortable="true">Nombres de portes</th>
+                <th data-field="portes" data-sortable="true">Nombre de portes</th>
                 <th data-field="places" data-sortable="true">Nombre de places</th>
+                <th data-field="prix" data-sortable="true">Prix</th>
                 <th data-field="edit">Modifier</th>
             </tr>
             </thead>
@@ -38,7 +38,6 @@
                     <td>{{ $vehicule->modele }}</td>
                     <td>{{ $vehicule->annee }}</td>
                     <td>{{ $vehicule->energie }}</td>
-                    <td>{{ $vehicule->finition }}</td>
                     <td>{{ $vehicule->bdv }}</td>
                     <td>{{ $vehicule->ce }}</td>
                     <td>{{ $vehicule->ci }}</td>
@@ -46,6 +45,7 @@
                     <td>{{ $vehicule->puissancefiscale }} CV</td>
                     <td>{{ $vehicule->portes }}</td>
                     <td>{{ $vehicule->places }}</td>
+                    <td>{{ $vehicule->prix }}€</td>
                     <td><a class="btn btn-primary float-right mt-4" href="{{ url('admin/vehicules/edit/'.$vehicule->id) }}" >Modifier</a></td>
                 </tr>
             @endforeach

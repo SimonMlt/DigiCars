@@ -22,6 +22,7 @@ if(isset($_GET['date'])){
 }
 
 if(isset($_POST['submit'])){
+    $account_id = $_POST['account_id'];
     $name = $_POST['name'];
     $email = $_POST['email'];
     $timeslot = $_POST['timeslot'];
@@ -33,8 +34,8 @@ if(isset($_POST['submit'])){
         if($result->num_rows>0){
             $msg = "<div class='alert alert-danger'>Already Booked</div>";
         }else{
-            $stmt = $mysqli->prepare("INSERT INTO reservation (name, timeslot, email,motif, date) VALUES (?,?,?,?,?)");
-            $stmt->bind_param('sssss', $name, $timeslot, $email, $motif, $date);
+            $stmt = $mysqli->prepare("INSERT INTO reservation (account_id, name, timeslot, email,motif, date) VALUES (?,?,?,?,?,?)");
+            $stmt->bind_param('ssssss', $account_id, $name, $timeslot, $email, $motif, $date);
             $stmt->execute();
             $msg = "<div class='alert alert-success'>Booking Successfull</div>";
             $bookings[]=$timeslot;
@@ -138,6 +139,9 @@ function timeslots($duration,$cleanup, $start, $end){
                                 <label for="">Horaire</label>
                                 <input readonly type="text" class="form-control" id="timeslot" name="timeslot">
                             </div>
+
+                            <input hidden type="text" class="form-control" name="account_name" value="{{ Auth::user()->id }}">
+
                             <div class="form-group">
                                 <label for="">Nom</label>
                                 <input required type="text" class="form-control" name="name">
@@ -168,7 +172,6 @@ function timeslots($duration,$cleanup, $start, $end){
 <script>
     
     $(".book").click(function(){
-        console.log("coucou");
         var timeslot = $(this).attr('data-timeslot');
         $("#slot").html(timeslot);
         $("#timeslot").val(timeslot);

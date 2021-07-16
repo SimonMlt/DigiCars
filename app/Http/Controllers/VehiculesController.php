@@ -26,6 +26,20 @@ class VehiculesController extends Controller
         return view('vehicules', compact('vehicules'));
     }
 
+    public function index3()
+    {
+        //
+        $vehicules = Vehicules::latest()->take(3)->get();
+        return view('home', compact('vehicules'));
+    }
+
+    public function details($id)
+    {
+        //
+        $vehicules = Vehicules::findOrFail($id);
+        return view('detailsvehicule', compact('vehicules'));
+    }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -46,21 +60,62 @@ class VehiculesController extends Controller
     public function store(Request $request)
     {
         //
-        $attributes = request()->validate([
-            'marque'=>'required',
-            'modele'=>'required',
-            'annee'=>'required',
-            'energie'=>'required',
-            'finition'=>'required',
-            'bdv'=>'required',
-            'ce'=>'required',
-            'ci'=>'required',
-            'puissancedin'=>'required',
-            'puissancefiscale'=>'required',
-            'portes'=>'required',
-            'places'=>'required',
+        $request->validate([
+            'filename' => 'required',
+            'marque' => 'required',
+            'modele' => 'required',
+            'annee' => 'required',
+            'energie' => 'required',
+            'bdv' => 'required',
+            'ce' => 'required',
+            'ci' => 'required',
+            'puissancedin' => 'required',
+            'puissancefiscale' => 'required',
+            'portes' => 'required',
+            'places' => 'required',
+            'prix' => 'required',
+            'description' => 'required',
+            'option1' => 'nullable',
+            'option2' => 'nullable',
+            'option3' => 'nullable',
+            'option4' => 'nullable',
         ]);
-        $vehicules = Vehicules::create($attributes);
+
+        // ensure the request has a file before we attempt anything else.
+        if ($request->hasFile('filename')) {
+
+            $request->validate([
+                'image' => 'mimes:jpeg,bmp,png' // Only allow .jpg, .bmp and .png file types.
+            ]);
+
+            /// Save the file locally in the storage/public/ folder under a new folder named /product
+            $request->filename->store('files', 'public');
+
+            // Store the record, using the new file hashname which will be it's new filename identity.
+            $vehicules = new Vehicules([
+                "filename" => $request->filename->hashName(),
+                'marque' => $request->get('marque'),
+                'modele' => $request->get('modele'),
+                'annee' => $request->get('annee'),
+                'energie' => $request->get('energie'),
+                'bdv' => $request->get('bdv'),
+                'ce' => $request->get('ce'),
+                'ci' => $request->get('ci'),
+                'puissancedin' => $request->get('puissancedin'),
+                'puissancefiscale' => $request->get('puissancefiscale'),
+                'portes' => $request->get('portes'),
+                'places' => $request->get('places'),
+                'prix' => $request->get('prix'),
+                'description' => $request->get('description'),
+                'option1' => $request->get('option1'),
+                'option2' => $request->get('option2'),
+                'option3' => $request->get('option3'),
+                'option4' => $request->get('option4'),
+            ]);
+            $vehicules->save(); // Finally, save the record.
+        }
+
+//        $vehicules = Vehicules::create($attributes);
         return redirect()->route('adminvehicules');
     }
 
@@ -98,18 +153,23 @@ class VehiculesController extends Controller
     public function update(Request $request, $id)
     {
         $attributes = request()->validate([
-            'marque'=>'required',
-            'modele'=>'required',
-            'annee'=>'required',
-            'energie'=>'required',
-            'finition'=>'required',
-            'bdv'=>'required',
-            'ce'=>'required',
-            'ci'=>'required',
-            'puissancedin'=>'required',
-            'puissancefiscale'=>'required',
-            'portes'=>'required',
-            'places'=>'required',
+            'marque' => 'required',
+            'modele' => 'required',
+            'annee' => 'required',
+            'energie' => 'required',
+            'bdv' => 'required',
+            'ce' => 'required',
+            'ci' => 'required',
+            'puissancedin' => 'required',
+            'puissancefiscale' => 'required',
+            'portes' => 'required',
+            'places' => 'required',
+            'prix' => 'required',
+            'description' => 'required',
+            'option1' => 'nullable',
+            'option2' => 'nullable',
+            'option3' => 'nullable',
+            'option4' => 'nullable',
         ]);
         $vehicules = Vehicules::findOrFail($id);
         $vehicules->update($attributes);

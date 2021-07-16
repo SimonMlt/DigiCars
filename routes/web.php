@@ -31,6 +31,19 @@ Auth::routes();
 
 Route::get('/accueil', 'HomeController@index')->name('home');
 
+// Page Contact
+Route::get('/contact', function () {
+    return view('contact');
+})->name('contact');
+
+// Partie Echanges
+Route::get('admin/devis/create', 'EchangesController@create')->name('createdevis');
+Route::post('admin/devis/create', 'EchangesController@store');
+Route::get('admin/devis', 'EchangesController@index')->name('admindevis');
+Route::get('admin/devis/edit/{id}', 'EchangesController@edit');
+Route::post('admin/devis/edit/{id}', 'EchangesController@update');
+Route::delete('admin/devis/delete/{id}', 'EchangesController@destroy');
+
 
 // Partie Réservation
 Route::get('reservations/dates', 'ReservationController@index')->name('reservationsdates');
@@ -45,6 +58,8 @@ Route::post('reservations/heures', 'ReservationController@store');
 
 // Partie Véhicule
 Route::get('vehicules', 'VehiculesController@index2')->name('vehicules');
+Route::get('/', 'VehiculesController@index3');
+Route::get('vehicules/details/{id}', 'VehiculesController@details')->name('detailsvehicules');
 
 Route::group([
     'middleware' => ['auth', 'admin']
@@ -60,3 +75,4 @@ Route::post('admin/vehicules/edit/{id}', 'VehiculesController@update');
 
 Route::delete('admin/vehicules/delete/{id}', 'VehiculesController@destroy');
 });
+

@@ -47,6 +47,7 @@ class ReservationController extends Controller
     {
         //
         $attributes = request()->validate([
+            'account_id'=>'required',
             'name'=>'required',
             'email'=>'required',
             'motif'=>'required',
@@ -100,23 +101,5 @@ class ReservationController extends Controller
     public function destroy(Reservation $reservation)
     {
         //
-    }
-
-    public function checkSlots($date){
-        $stmt = $mysqli->prepare("select * from bookings where date = ?");
-        $stmt->bind_param('s', $date);
-        $totalbookings = 0;
-        if($stmt->execute()){
-            $result = $stmt->get_result();
-            if($result->num_rows>0){
-                while($row = $result->fetch_assoc()){
-                    $totalbookings++;
-                }
-
-                $stmt->close();
-            }
-        }
-
-        return $totalbookings;
     }
 }

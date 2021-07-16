@@ -57,7 +57,7 @@
                     <!-- ***** Menu Start ***** -->
                     <ul class="nav">
                         <li><a href="/" class="active">Accueil</a></li>
-                        <li><a href="{{ route('vehicules') }}">Nos véhicules</a></li>
+                        <li><a href="{{ route('vehicules') }}">Nos voitures</a></li>
                         <li><a href="{{ route('reservationsdates') }}">Réservations</a></li>
 {{--                        <li class="dropdown">--}}
 {{--                            <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button"--}}
@@ -72,11 +72,11 @@
 {{--                                <a class="dropdown-item" href="terms.html">Terms</a>--}}
 {{--                            </div>--}}
 {{--                        </li>--}}
-                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="{{ route('contact') }}">Contact</a></li>
                         @guest
-                            <li><a href="{{ route('login') }}">{{ __('Login') }}</a></li>
+                            <li><a href="{{ route('login') }}">{{ __('Connexion') }}</a></li>
                             @if (Route::has('register'))
-                                <li><a href="{{ route('register') }}">{{ __('Register') }}</a></li>
+                                <li><a href="{{ route('register') }}">{{ __('Inscription') }}</a></li>
                             @endif
                         @else
                             <li class="dropdown">
@@ -85,7 +85,8 @@
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                     @if(Auth::user()->is_admin)
-                                    <a class="dropdown-item" href="{{ route('adminvehicules') }}">Nos véhicules</a>
+                                        <a class="dropdown-item" href="{{ route('adminvehicules') }}">Nos voitures</a>
+                                        <a class="dropdown-item" href="{{ route('admindevis') }}">Liste des devis</a>
                                     @endif
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
@@ -110,25 +111,25 @@
     </div>
 </header>
 <!-- ***** Header Area End ***** -->
-@if (Route::is('home') or Route::is('index'))
-    <!-- ***** Main Banner Area Start ***** -->
-    <div class="main-banner" id="top">
-        <video autoplay muted loop id="bg-video">
-            <source src="assets/images/video.mp4" type="video/mp4"/>
-        </video>
+{{--@if (Route::is('home') or Route::is('index'))--}}
+{{--    <!-- ***** Main Banner Area Start ***** -->--}}
+{{--    <div class="main-banner" id="top">--}}
+{{--        <video autoplay muted loop id="bg-video">--}}
+{{--            <source src="assets/images/video.mp4" type="video/mp4"/>--}}
+{{--        </video>--}}
 
-        <div class="video-overlay header-text">
-            <div class="caption">
-                <h6>Lorem ipsum dolor sit amet</h6>
-                <h2>Best <em>car dealer</em> in town!</h2>
-                <div class="main-button">
-                    <a href="contact.html">Contact Us</a>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- ***** Main Banner Area End ***** -->
-@endif
+{{--        <div class="video-overlay header-text">--}}
+{{--            <div class="caption">--}}
+{{--                <h6>Lorem ipsum dolor sit amet</h6>--}}
+{{--                <h2>Best <em>car dealer</em> in town!</h2>--}}
+{{--                <div class="main-button">--}}
+{{--                    <a href="contact.html">Contact Us</a>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--        </div>--}}
+{{--    </div>--}}
+{{--    <!-- ***** Main Banner Area End ***** -->--}}
+{{--@endif--}}
 
 <div id="app">
     <main class="py-4">
@@ -172,6 +173,7 @@
 <!-- Table JS-->
 <script src="https://unpkg.com/bootstrap-table@1.18.2/dist/bootstrap-table.min.js"></script>
 <script src="https://unpkg.com/bootstrap-table@1.16.0/dist/locale/bootstrap-table-fr-FR.min.js"></script>
+
 
 </body>
 </html>

@@ -1,6 +1,19 @@
 @extends('layouts.app')
 
 @section('content')
+    <section class="section section-bg" id="call-to-action" style="background-image: url({{ asset('assets/images/banner-image-1-1920x500.jpg') }})">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-10 offset-lg-1">
+                    <div class="cta-content">
+                        <br>
+                        <br>
+                        <h2>Réservez-<em>un créneau</em></h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <?php
 
@@ -292,7 +305,7 @@
     <body>
     <div class="container mt-5">
         <div class="row">
-            <div class="col-md-12" style="padding-top: 20px">
+            <div class="col-md-12">
                 <?php
                 $dateComponents = getdate();
                 if(isset($_GET['month']) && isset($_GET['year'])){
