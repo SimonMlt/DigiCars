@@ -17,7 +17,7 @@ class EchangesController extends Controller
     public function index()
     {
         $devis = Echanges::get()->all();
-        return view('listedevis', compact('devis'));
+        return view('Back/backdevis', compact('devis'));
     }
 
 
