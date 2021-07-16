@@ -66,12 +66,15 @@ class EchangesController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Echanges  $echanges
+     * @param $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Echanges $echanges)
+    public function edit($id)
     {
-        //
+        $devis = Echanges::findOrFail($id);
+        $users = User::get()->all();
+        $vehicules = Vehicules::get()->all();
+        return view ('Back/editdevis', compact('devis', 'users', 'vehicules'));
     }
 
     /**
@@ -81,9 +84,17 @@ class EchangesController extends Controller
      * @param  \App\Echanges  $echanges
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Echanges $echanges)
+    public function update(Request $request, $id)
     {
-        //
+        $attributes = request()->validate([
+            'id_client' => 'required',
+            'id_vehicule' => 'required',
+            'quantite' => 'required',
+            'total' => 'required',
+        ]);
+        $devis = Echanges::findOrFail($id);
+        $devis->update($attributes);
+        return redirect()->route('admindevis');
     }
 
     /**

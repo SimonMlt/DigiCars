@@ -16,6 +16,7 @@
                 <th scope="col">Quantité</th>
                 <th scope="col">Total</th>
                 <th></th>
+                <th></th>
             </tr>
             </thead>
             <tbody>
@@ -26,6 +27,7 @@
                     <th>{{ $quote->vehicules->marque }} {{ $quote->vehicules->modele }}</th>
                     <th>{{ $quote->quantite }}</th>
                     <th>{{ $quote->total }}€</th>
+                    <th><a href="{{ url('admin/devis/edit/'.$quote->id) }}">Modifier</a></th>
                     <th><a href="#">Voir</a></th>
                 </tr>
             @endforeach
