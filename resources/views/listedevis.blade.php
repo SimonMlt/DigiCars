@@ -22,7 +22,7 @@
                 @foreach($devis as $quote)
                     <tr>
                         <th>{{ $quote->id }}</th>
-                        <th>{{ $quote->user->name }}</th>
+                        <th>{{ $quote->user->name }} ({{ $quote->user->id }})</th>
                         <th>{{ $quote->vehicules->marque }} {{ $quote->vehicules->modele }}</th>
                         <th>{{ $quote->quantite }}</th>
                         <th>{{ $quote->total }}€</th>
