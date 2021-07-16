@@ -10,7 +10,7 @@
                     <select class="form-control" name="id_client">
                         <option selected disabled value="#"> --Sélectionner--</option>
                         @foreach($users as $user)
-                            <option value="{{ $user->id }}">{{ $user->name }}</option>
+                            <option value="{{ $user->id }}" {{ $user->id == $devis->id_client ? 'selected' : '' }}>{{ $user->name }}</option>
                         @endforeach
                     </select>
                 </div>
@@ -20,7 +20,7 @@
                         <option selected disabled value="#"> --Sélectionner--</option>
                         @foreach($vehicules as $vehicule)
                             <option data-price="{{ $vehicule->prix }}"
-                                    value="{{ $vehicule->id }}">{{ $vehicule->marque }} {{ $vehicule->modele }}</option>
+                                    value="{{ $vehicule->id }}" {{ $vehicule->id == $devis->id_vehicule ? 'selected' : '' }}>{{ $vehicule->marque }} {{ $vehicule->modele }}</option>
                         @endforeach
                     </select>
                 </div>
