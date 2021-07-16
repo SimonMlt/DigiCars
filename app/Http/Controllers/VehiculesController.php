@@ -43,7 +43,7 @@ class VehiculesController extends Controller
             return $query->orderBy('prix', $request->prix == 'less-expensive' ? 'asc' : 'desc');
         }, function ($query) {
             return $query->orderByDesc('id');
-        })->paginate(15);
+        })->paginate(9);
 
 
 //        $vehicules = Vehicules::get()->all();
