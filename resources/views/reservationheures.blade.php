@@ -140,7 +140,7 @@ function timeslots($duration,$cleanup, $start, $end){
                                 <input readonly type="text" class="form-control" id="timeslot" name="timeslot">
                             </div>
 
-                            <input hidden type="text" class="form-control" name="account_name" value="{{ Auth::user()->id }}">
+                            <input hidden type="text" class="form-control" name="account_id" value="{{ Auth::user()->id }}">
 
                             <div class="form-group">
                                 <label for="">Nom</label>
