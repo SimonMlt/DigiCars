@@ -38,46 +38,17 @@
             <br>
             <br>
             <div class="contact-form">
-                <form action="#" id="contact">
+                <form action="{{ route('vehicules') }}" method="GET" id="contact">
                     <div class="row">
                         <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
                             <div class="form-group">
                                 <label>Marque:</label>
 
-                                <select>
+                                <select name="marque">
                                     <option value="">-- Tous --</option>
-                                    <option value="">-- Tous --</option>
-                                    <option value="">-- Tous --</option>
-                                    <option value="">-- Tous --</option>
-                                    <option value="">-- Tous --</option>
-                                    <option value="">-- Tous --</option>
-                                    <option value="">-- Tous --</option>
-                                </select>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
-                            <div class="form-group">
-                                <label>Modèle:</label>
-
-                                <select>
-                                    <option value="">-- Tous --</option>
-                                    <option value="">-- Tous --</option>
-                                    <option value="">-- Tous --</option>
-                                    <option value="">-- Tous --</option>
-                                </select>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
-                            <div class="form-group">
-                                <label>Prix:</label>
-
-                                <select>
-                                    <option value="">-- Tous --</option>
-                                    <option value="">-- Tous --</option>
-                                    <option value="">-- Tous --</option>
-                                    <option value="">-- Tous --</option>
+                                    @foreach(\App\Vehicules::select('marque')->distinct()->get() as $marque){
+                                        <option value="{{ $marque->marque }}">{{ $marque->marque }}</option>
+                                    @endforeach
                                 </select>
                             </div>
                         </div>
@@ -86,11 +57,11 @@
                             <div class="form-group">
                                 <label>Boîte de vitesse:</label>
 
-                                <select>
+                                <select name="bdv">
                                     <option value="">-- Tous --</option>
-                                    <option value="">-- Tous --</option>
-                                    <option value="">-- Tous --</option>
-                                    <option value="">-- Tous --</option>
+                                    @foreach(\App\Vehicules::select('bdv')->distinct()->get() as $bdv){
+                                    <option value="{{ $bdv->bdv }}">{{ $bdv->bdv }}</option>
+                                    @endforeach
                                 </select>
                             </div>
                         </div>
@@ -99,11 +70,11 @@
                             <div class="form-group">
                                 <label>Nombre de portes:</label>
 
-                                <select>
+                                <select name="portes">
                                     <option value="">-- Tous --</option>
-                                    <option value="">-- Tous --</option>
-                                    <option value="">-- Tous --</option>
-                                    <option value="">-- Tous --</option>
+                                    @foreach(\App\Vehicules::select('portes')->distinct()->get() as $portes){
+                                    <option value="{{ $portes->portes }}">{{ $portes->portes }}</option>
+                                    @endforeach
                                 </select>
                             </div>
                         </div>
@@ -112,11 +83,23 @@
                             <div class="form-group">
                                 <label>Nombre de places:</label>
 
-                                <select>
+                                <select name="places">
                                     <option value="">-- Tous --</option>
+                                    @foreach(\App\Vehicules::select('places')->distinct()->get() as $places){
+                                    <option value="{{ $places->places }}">{{ $places->places }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+                            <div class="form-group">
+                                <label>Prix:</label>
+
+                                <select name="prix">
                                     <option value="">-- Tous --</option>
-                                    <option value="">-- Tous --</option>
-                                    <option value="">-- Tous --</option>
+                                    <option value="more-expensive">Plus cher</option>
+                                    <option value="less-expensive">Moins cher</option>
                                 </select>
                             </div>
                         </div>
@@ -124,7 +107,7 @@
 
                     <div class="col-sm-4 offset-sm-4">
                         <div class="main-button text-center">
-                            <a href="#">Search</a>
+                            <button type="submit">Filtrer</button>
                         </div>
                     </div>
                     <br>

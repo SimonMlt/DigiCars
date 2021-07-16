@@ -19,10 +19,34 @@ class VehiculesController extends Controller
         return view('Back/backvehicules', compact('vehicules'));
     }
 
-    public function index2()
+    public function index2(Request $request)
     {
         //
-        $vehicules = Vehicules::get()->all();
+//        $category = Vehicules::where( function($query) use($request){
+//            return $request->marque_nom ?
+//                $query->from('vehicules')->where('marque',$request->marque_nom) : '';
+//        })
+//            ->get();
+//
+//        $selected_id = [];
+//        $selected_id['marque'] = $request->marque_nom;
+
+        $vehicules = Vehicules::when($request->marque, function ($query, $marque) {
+            return $query->where('marque', 'like', "%{$marque}%");
+        })->when($request->bdv, function ($query, $bdv) {
+            return $query->where('bdv', 'like', "%{$bdv}%");
+        })->when($request->portes, function ($query, $portes) {
+            return $query->where('portes', 'like', "%{$portes}%");
+        })->when($request->places, function ($query, $places) {
+            return $query->where('places', 'like', "%{$places}%");
+        })->when($request->prix && in_array($request->prix, ['more-expensive', 'less-expensive']), function ($query) use ($request) {
+            return $query->orderBy('prix', $request->prix == 'less-expensive' ? 'asc' : 'desc');
+        }, function ($query) {
+            return $query->orderByDesc('id');
+        })->paginate(15);
+
+
+//        $vehicules = Vehicules::get()->all();
         return view('vehicules', compact('vehicules'));
     }
 
