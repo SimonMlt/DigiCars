@@ -28,9 +28,10 @@ class EchangesController extends Controller
      */
     public function create()
     {
+        $devis = Echanges::get()->all();
         $users = User::get()->all();
         $vehicules = Vehicules::get()->all();
-        return view('Back/createdevis', compact('vehicules','users'));
+        return view('Back/createdevis', compact('vehicules','users','devis'));
     }
 
     /**
