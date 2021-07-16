@@ -35,6 +35,11 @@
                 <button type="submit" class="btn btn-primary float-right">Modifier le devis</button>
             </div>
         </form>
+        <form action="{{ url('admin/devis/delete/'.$devis->id) }}" method="POST">
+            @csrf
+            @method('DELETE')
+            <button class="btn btn-danger mb-4 mr-4 float-right" type="submit">Supprimer</button>
+        </form>
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <script>

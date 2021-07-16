@@ -42,6 +42,7 @@ Route::post('admin/devis/create', 'EchangesController@store');
 Route::get('admin/devis', 'EchangesController@index')->name('admindevis');
 Route::get('admin/devis/edit/{id}', 'EchangesController@edit');
 Route::post('admin/devis/edit/{id}', 'EchangesController@update');
+Route::delete('admin/devis/delete/{id}', 'EchangesController@destroy');
 
 
 // Partie Réservation

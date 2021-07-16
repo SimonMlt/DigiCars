@@ -103,8 +103,10 @@ class EchangesController extends Controller
      * @param  \App\Echanges  $echanges
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Echanges $echanges)
+    public function destroy($id)
     {
-        //
+        $devis = Echanges::findOrFail($id);
+        $devis->delete();
+        return redirect()->route('admindevis');
     }
 }
