@@ -67,9 +67,9 @@
         // Create the table tag opener and day headers
 
         $datetoday = date('Y-m-d');
-        setlocale (LC_TIME, 'fr_FR.utf8','fra');
-        $currentMonth = ucfirst(strftime("%B"));
-
+        setlocale (LC_TIME, 'fr_FR.utf8','fra'); 
+        $currentMonth = ucfirst(strftime("%B")); 
+        
 
         $calendar = "<table class='table table-bordered'>";
         $calendar .= "<center><h2 style='font-size: 32px;font-weight: 700;text-transform: uppercase;' class='mb-2'>$monthName $year</h2>";
@@ -134,27 +134,12 @@
                 $calendar.="<td><h4 class='mb-3'>$currentDay</h4> <button class='btn btn-secondary disabled btn-xs'>Passé</button>";
             }else{
 
-
                 $totalbookings = checkSlots($mysqli, $date);
                 if($totalbookings == 16){
                     $calendar.="<td class='$today'><h4 class='mb-3'>$currentDay</h4> <a href='#' class='btn btn-warning btn-xs'>Complet</a>";
                 }else{
-                    ?>
-                    @auth
-                    <?php
-                        $calendar.="<td class='$today'><h4 class='mb-3'>$currentDay</h4> <a href='heures?date=".$date."' class='btn btn-success btn-xs'>Disponible</a>";
-                    ?>
-                    @endauth
-                    @guest
-                        <?php
-                        $calendar.="<td class='$today'><h4 class='mb-3'>$currentDay</h4> <a href='http://127.0.0.1:8000/login' class='btn btn-success btn-xs'>Disponible</a>";
-
-                        ?>
-                    @endguest
-                    <?php
-
+                    $calendar.="<td class='$today'><h4 class='mb-3'>$currentDay</h4> <a href='heures?date=".$date."' class='btn btn-success btn-xs'>Disponible</a>";
                 }
-
             }
 
 
@@ -313,7 +298,7 @@
             /*}*/
 
             .today{
-
+                
                 background:#3cff00;
             }
 
