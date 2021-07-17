@@ -47,12 +47,13 @@ Route::get('admin/devis/{id}', 'EchangesController@show');
 
 // Partie Réservation
 Route::get('reservations/dates', 'ReservationController@index')->name('reservationsdates');
-
 Route::get('reservations/valider', 'ReservationController@index2')->name('reservationsvalider');
 
 
 Route::get('reservations/heures', 'ReservationController@create');
 Route::post('reservations/heures', 'ReservationController@store');
+
+Route::get('reservations/liste', 'ReservationController@index3')->name('reservationsliste');
 
 
 // Partie Véhicule
