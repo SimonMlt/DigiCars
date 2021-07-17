@@ -70,12 +70,12 @@ while($row = mysqli_fetch_assoc($querySelect)) {
             "marque" => "$marque",
             "modele" => "$modele",
             "annee" => "$annee",
-            "description" => "$marque $modele de $annee",
+            "description" => "$marque $modele de $annee<br>$energie | $boite | Extérieur : $exterieur | Intérieur : $interieur | $puissance_din ch<br>$portes portes | $places places",
             "prix" => "$prix",
             "quantite" => "$quantite"
         );
 
-        if($option_1 !== "") {
+        if($option_1 !== NULL) {
             $tasks[] = array(
                 "description" => "Option 1 : $option_1",
                 "prix" => "0",
@@ -83,7 +83,7 @@ while($row = mysqli_fetch_assoc($querySelect)) {
             );
         }
 
-        if($option_2 !== "") {
+        if($option_2 !== NULL) {
             $tasks[] = array(
                 "description" => "Option 2 : $option_2",
                 "prix" => "0",
@@ -91,7 +91,7 @@ while($row = mysqli_fetch_assoc($querySelect)) {
             );
         }
 
-        if($option_3 !== "") {
+        if($option_3 !== NULL) {
             $tasks[] = array(
                 "description" => "Option 3 : $option_3",
                 "prix" => "0",
@@ -99,7 +99,7 @@ while($row = mysqli_fetch_assoc($querySelect)) {
             );
         }
 
-        if($option_4 !== "") {
+        if($option_4 !== NULL) {
             $tasks[] = array(
                 "description" => "Option 4 : $option_4",
                 "prix" => "0",

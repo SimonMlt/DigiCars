@@ -4,7 +4,7 @@
     <div class="container mt-5">
         <h1 style="padding: 20px 0">Liste des devis</h1>
         <div style="padding-top: 20px;padding-bottom: 20px;">
-            <a href="{{ url('admin/devis/create/') }}"><button style="float: left;margin-left: 20px;" class="submit">Créer un devis</button></a><br><br>
+            <a href="{{ url('admin/devis/create/') }}"><button style="float: left;margin-left: 20px;" class="btn btn-primary">Créer un devis</button></a><br><br>
         </div>
 
         <table class="table" style="text-align: center">
