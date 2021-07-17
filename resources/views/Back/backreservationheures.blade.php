@@ -101,7 +101,7 @@ function timeslots($duration,$cleanup, $start, $end){
         echo utf8_encode(ucwords(strftime('%A %d %B %G', strtotime($date))));
         
         ?>
-        
+    </h1>    
    
     <div class="row">
         <div class="col-md-12 mt-3">
