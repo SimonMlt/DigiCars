@@ -196,7 +196,7 @@ function timeslots($duration,$cleanup, $start, $end){
                             </div>
                             <div class="form-group">
                                 <label for="">Motif</label>
-                                <select name="pmotif" class="form-control" required>
+                                <select name="motif" class="form-control" required>
                                     <option value="Conseil">Conseil</option>
                                     <option value="Achat">Achat</option>
                                     <option value="Location">Location</option>

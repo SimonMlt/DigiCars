@@ -99,7 +99,10 @@ function timeslots($duration,$cleanup, $start, $end){
         <?php
         setlocale (LC_TIME, 'fr_FR.utf8','fra'); 
         echo utf8_encode(ucwords(strftime('%A %d %B %G', strtotime($date))));
-        ?></h1><hr>
+        
+        ?>
+        
+   
     <div class="row">
         <div class="col-md-12 mt-3">
             <?php echo isset($msg)?$msg:""; ?>
@@ -117,7 +120,7 @@ function timeslots($duration,$cleanup, $start, $end){
                     <div class="col-md-12 mb-5">
                         <div class="form-group">
                             <?php if(in_array($ts, $bookings)){?>
-                            <button class="btn btn-danger"><?php echo $ts; ?></button>
+                            <button class="btn btn-primary book2" data-timeslot="<?php echo $ts; ?>" data-date="<?php echo $date; ?>"><?php echo $ts; ?></button>
                             <?php }else {?>
                             <button class="btn btn-success book" value="<?php echo $ts; ?>" data-timeslot="<?php echo $ts; ?>"><?php echo $ts; ?></button>
                             <?php } ?>
@@ -132,7 +135,7 @@ function timeslots($duration,$cleanup, $start, $end){
                 <div class="col-md-12 mb-5">
                     <div class="form-group">
                         <?php if(in_array($ts, $bookings)){?>
-                        <button class="btn btn-danger"><?php echo $ts; ?></button>
+                        <button class="btn btn-primary book2" data-timeslot="<?php echo $ts; ?>" data-date="<?php echo $date; ?>"><?php echo $ts; ?></button>
                         <?php }else {?>
                         <button class="btn btn-success book" value="<?php echo $ts; ?>" data-timeslot="<?php echo $ts; ?>"><?php echo $ts; ?></button>
                         <?php } ?>
@@ -148,7 +151,7 @@ function timeslots($duration,$cleanup, $start, $end){
                     <div class="col-md-12 mb-5">
                         <div class="form-group">
                             <?php if(in_array($ts, $bookings)){?>
-                            <button class="btn btn-danger"><?php echo $ts; ?></button>
+                            <button class="btn btn-primary book2" data-timeslot="<?php echo $ts; ?>" data-date="<?php echo $date; ?>"><?php echo $ts; ?></button>
                             <?php }else {?>
                             <button class="btn btn-success book" value="<?php echo $ts; ?>" data-timeslot="<?php echo $ts; ?>"><?php echo $ts; ?></button>
                             <?php } ?>
@@ -196,7 +199,60 @@ function timeslots($duration,$cleanup, $start, $end){
                             </div>
                             <div class="form-group">
                                 <label for="">Motif</label>
-                                <select name="pmotif" class="form-control" required>
+                                <select name="motif" class="form-control" required>
+                                    <option value="Conseil">Conseil</option>
+                                    <option value="Achat">Achat</option>
+                                    <option value="Location">Location</option>
+                                </select>
+                            </div>
+                            <div class="form-group pull-right">
+                                <button name="submit" type="submit" class="btn btn-primary">Valider</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
+
+<div id="myModal2" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Rendez-vous pour :<br> <span id="slot2"></span></h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-12">
+                        <form action="" method="post">
+                            @csrf
+                            <div class="form-group">
+                                <label for="">Horaire</label>
+                                <input readonly type="text" class="form-control" id="timeslot2" name="timeslot">
+                            </div>
+
+                            <input hidden type="text" class="form-control" name="account_id" value="{{ Auth::user()->id }}">
+
+                            <div class="form-group">
+                                <label for="">Nom</label>
+                                <input required type="text" class="form-control" name="name">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="">Email</label>
+                                <input required type="email" class="form-control" name="email">
+                            </div>
+                            <div class="form-group">
+                                <label for="">Motif</label>
+                                <select name="motif" class="form-control" required>
                                     <option value="Conseil">Conseil</option>
                                     <option value="Achat">Achat</option>
                                     <option value="Location">Location</option>
@@ -223,9 +279,17 @@ function timeslots($duration,$cleanup, $start, $end){
         var timeslot = $(this).attr('data-timeslot');
         $("#slot").html(timeslot);
         $("#timeslot").val(timeslot);
-        $("#myModal").modal("show");
-        
+        $("#myModal").modal("show");   
     });
+
+    $(".book2").click(function(){
+        var timeslot = $(this).attr('data-timeslot');
+        // var date = $(this).attr('data-date');
+        $("#slot2").html(timeslot);
+        $("#timeslot2").val(timeslot);
+        $("#myModal2").modal("show");   
+    });
+    
 
     
 </script>
