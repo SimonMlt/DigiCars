@@ -67,14 +67,17 @@
         // Create the table tag opener and day headers
 
         $datetoday = date('Y-m-d');
+        setlocale (LC_TIME, 'fr_FR.utf8','fra'); 
+        $currentMonth = ucfirst(strftime("%B")); 
+        
 
         $calendar = "<table class='table table-bordered'>";
-        $calendar .= "<center><h2>$monthName $year</h2>";
-        $calendar.= "<a class='btn btn-xs btn-primary' href='?month=".date('m', mktime(0, 0, 0, $month-1, 1, $year))."&year=".date('Y', mktime(0, 0, 0, $month-1, 1, $year))."'>Mois Précédent</a> ";
+        $calendar .= "<center><h2 style='font-size: 32px;font-weight: 700;text-transform: uppercase;' class='mb-2'>$monthName $year</h2>";
+        $calendar.= "<a class='btn btn-xs btn-primary' style='border-radius:50%;' href='?month=".date('m', mktime(0, 0, 0, $month-1, 1, $year))."&year=".date('Y', mktime(0, 0, 0, $month-1, 1, $year))."'><i class='fas fa-arrow-left'></i></a> ";
 
-        $calendar.= " <a class='btn btn-xs btn-primary' href='?month=".date('m')."&year=".date('Y')."'>Mois Actuel</a> ";
+        $calendar.= " <a class='btn btn-xs btn-primary' href='?month=".date('m')."&year=".date('Y')."'>$currentMonth</a> ";
 
-        $calendar.= "<a class='btn btn-xs btn-primary' href='?month=".date('m', mktime(0, 0, 0, $month+1, 1, $year))."&year=".date('Y', mktime(0, 0, 0, $month+1, 1, $year))."'>Mois Suivant</a></center><br>";
+        $calendar.= "<a class='btn btn-xs btn-primary' style='border-radius:50%;' href='?month=".date('m', mktime(0, 0, 0, $month+1, 1, $year))."&year=".date('Y', mktime(0, 0, 0, $month+1, 1, $year))."'><i class='fas fa-arrow-right'></i></a></center><br>";
 
 
 
@@ -83,7 +86,7 @@
         // Create the calendar headers
 
         foreach($daysOfWeek as $day) {
-            $calendar .= "<th  class='header'>$day</th>";
+            $calendar .= "<th  class='header text-center' style='background-color:#31d900;color:#FFFFFF;border:none;'>$day</th>";
         }
 
         // Create the rest of the calendar
@@ -126,16 +129,16 @@
             $eventNum = 0;
             $today = $date==date('Y-m-d')? "today" : "";
             if($dayname=="saturday" || $dayname=="sunday" ){
-                $calendar.="<td class='$today'><h4>$currentDay</h4> <button class='btn btn-secondary btn-xs'>Fermé</button>";
+                $calendar.="<td class='$today'><h4 class='mb-3'>$currentDay</h4> <button class='btn btn-secondary btn-xs'>Fermé</button>";
             }elseif($date<date('Y-m-d')){
-                $calendar.="<td><h4>$currentDay</h4> <button class='btn btn-secondary disabled btn-xs'>Passé</button>";
+                $calendar.="<td><h4 class='mb-3'>$currentDay</h4> <button class='btn btn-secondary disabled btn-xs'>Passé</button>";
             }else{
 
                 $totalbookings = checkSlots($mysqli, $date);
                 if($totalbookings == 16){
-                    $calendar.="<td class='$today'><h4>$currentDay</h4> <a href='#' class='btn btn-warning btn-xs'>Complet</a>";
+                    $calendar.="<td class='$today'><h4 class='mb-3'>$currentDay</h4> <a href='#' class='btn btn-warning btn-xs'>Complet</a>";
                 }else{
-                    $calendar.="<td class='$today'><h4>$currentDay</h4> <a href='heures?date=".$date."' class='btn btn-success btn-xs'>Disponible</a>";
+                    $calendar.="<td class='$today'><h4 class='mb-3'>$currentDay</h4> <a href='heures?date=".$date."' class='btn btn-success btn-xs'>Disponible</a>";
                 }
             }
 
@@ -222,13 +225,13 @@
                 }
 
                 tr {
-                    border: 1px solid #ccc;
+                    border: 1px solid #31d900;
                 }
 
                 td {
                     /* Behave  like a "row" */
                     border: none;
-                    border-bottom: 1px solid #eee;
+                    border-bottom: 1px solid #31d900;
                     position: relative;
                     padding-left: 50%;
                 }
@@ -283,6 +286,7 @@
             @media (min-width:641px) {
                 table {
                     table-layout: fixed;
+                    background: rgb(245, 245, 245);
                 }
                 td {
                     width: 33%;
@@ -294,7 +298,8 @@
             /*}*/
 
             .today{
-                background:#89E0FF;
+                
+                background:#3cff00;
             }
 
 
@@ -320,6 +325,8 @@
             </div>
         </div>
     </div>
+    <script src="https://kit.fontawesome.com/772e7ca8e4.js" crossorigin="anonymous"></script>
+
     </body>
 
     </html>

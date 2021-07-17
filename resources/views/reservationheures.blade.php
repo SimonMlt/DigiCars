@@ -95,30 +95,73 @@ function timeslots($duration,$cleanup, $start, $end){
 
 <body>
 <div class="container mt-5" style="padding-top: 20px">
-    <h1 class="text-center">Horaire du
+    <h1 class="text-center" style="font-size: 32px;font-weight: 700;text-transform: uppercase;">Horaire du
         <?php
         setlocale(LC_TIME, "fr_FR", "French");
         echo ucwords(strftime('%A %d %B %G', strtotime($date)));
         ?></h1><hr>
     <div class="row">
-        <div class="col-md-12">
+        <div class="col-md-12 mt-3">
             <?php echo isset($msg)?$msg:""; ?>
         </div>
+        
         <?php $timeslots = timeslots($duration,$cleanup, $start, $end);
+        $countH = 0;
         foreach($timeslots as $ts){
         ?>
-        <div class="col-md-3">
-            <div class="form-group">
-                <?php if(in_array($ts, $bookings)){?>
-                <button class="btn btn-danger"><?php echo $ts; ?></button>
-                <?php }else {?>
-                <button class="btn btn-success book" value="<?php echo $ts; ?>" data-timeslot="<?php echo $ts; ?>"><?php echo $ts; ?></button>
-                <?php } ?>
+            <?php 
+            if($countH == 0){
+                $countH = $countH +1;
+            ?>
+                <div class="col-md-3 mb-3">
+                    <div class="col-md-12 mb-5">
+                        <div class="form-group">
+                            <?php if(in_array($ts, $bookings)){?>
+                            <button class="btn btn-danger"><?php echo $ts; ?></button>
+                            <?php }else {?>
+                            <button class="btn btn-success book" value="<?php echo $ts; ?>" data-timeslot="<?php echo $ts; ?>"><?php echo $ts; ?></button>
+                            <?php } ?>
 
-            </div>
-        </div>
+                        </div>
+                    </div>
+        
+            <?php
+            }else if($countH != 4){
+                $countH = $countH +1;
+            ?>
+                <div class="col-md-12 mb-5">
+                    <div class="form-group">
+                        <?php if(in_array($ts, $bookings)){?>
+                        <button class="btn btn-danger"><?php echo $ts; ?></button>
+                        <?php }else {?>
+                        <button class="btn btn-success book" value="<?php echo $ts; ?>" data-timeslot="<?php echo $ts; ?>"><?php echo $ts; ?></button>
+                        <?php } ?>
+
+                    </div>
+                </div>
+            <?php
+            }else if ($countH = 4){
+            
+            ?>
+                </div>
+                <div class="col-md-3 mb-3">
+                    <div class="col-md-12 mb-5">
+                        <div class="form-group">
+                            <?php if(in_array($ts, $bookings)){?>
+                            <button class="btn btn-danger"><?php echo $ts; ?></button>
+                            <?php }else {?>
+                            <button class="btn btn-success book" value="<?php echo $ts; ?>" data-timeslot="<?php echo $ts; ?>"><?php echo $ts; ?></button>
+                            <?php } ?>
+
+                        </div>
+                    </div>
+        
+            <?php
+                $countH = 1;
+            } ?>
         <?php } ?>
-    </div>
+    
+</div>
 </div>
 <div id="myModal" class="modal fade" role="dialog">
     <div class="modal-dialog">
@@ -146,13 +189,18 @@ function timeslots($duration,$cleanup, $start, $end){
                                 <label for="">Nom</label>
                                 <input required type="text" class="form-control" name="name">
                             </div>
+                            
                             <div class="form-group">
                                 <label for="">Email</label>
                                 <input required type="email" class="form-control" name="email">
                             </div>
                             <div class="form-group">
                                 <label for="">Motif</label>
-                                <input required type="text" class="form-control" name="motif">
+                                <select name="pmotif" class="form-control" required>
+                                    <option value="Conseil">Conseil</option>
+                                    <option value="Achat">Achat</option>
+                                    <option value="Location">Location</option>
+                                </select>
                             </div>
                             <div class="form-group pull-right">
                                 <button name="submit" type="submit" class="btn btn-primary">Valider</button>
