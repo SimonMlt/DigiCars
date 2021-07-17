@@ -54,17 +54,6 @@ Route::get('reservations/valider', 'ReservationController@index2')->name('reserv
 Route::get('reservations/heures', 'ReservationController@create');
 Route::post('reservations/heures', 'ReservationController@store');
 
-// Partie Réservation Back
-Route::get('admin/backreservations/dates', 'ReservationController@indexBack')->name('backreservationsdates');
-
-Route::get('admin/backreservations/valider', 'ReservationController@indexBack2')->name('backreservationsvalider');
-
-
-Route::get('admin/backreservations/heures', 'ReservationController@createBack');
-Route::post('admin/backreservations/heures', 'ReservationController@storeBack');
-
-
-
 
 // Partie Véhicule
 Route::get('vehicules', 'VehiculesController@index2')->name('vehicules');
@@ -84,5 +73,23 @@ Route::get('admin/vehicules/edit/{id}', 'VehiculesController@edit');
 Route::post('admin/vehicules/edit/{id}', 'VehiculesController@update');
 
 Route::delete('admin/vehicules/delete/{id}', 'VehiculesController@destroy');
+
+
+// Partie Réservation Back
+Route::get('admin/backreservations/dates', 'ReservationController@indexBack')->name('backreservationsdates');
+
+Route::get('admin/backreservations/valider', 'ReservationController@indexBack2')->name('backreservationsvalider');
+
+
+Route::get('admin/backreservations/heures', 'ReservationController@createBack');
+Route::post('admin/backreservations/heures', 'ReservationController@storeBack');
+
+Route::get('admin/backreservations/details', 'ReservationController@createBackDetails')->name('backreservationsdetails');;
+Route::post('admin/backreservations/details', 'ReservationController@createBackDetails');
+// Route::post('admin/backreservations/details', 'ReservationController@storeBackDetails');
+
+Route::delete('admin/backreservations/delete/{id}', 'ReservationController@destroy');
+
+
 });
 

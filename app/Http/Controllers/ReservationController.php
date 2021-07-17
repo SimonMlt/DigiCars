@@ -60,6 +60,13 @@ class ReservationController extends Controller
 
     }
 
+    public function createBackDetails()
+    {
+        //
+        return view('Back/backreservationdetails');
+
+    }
+
     /**
      * Store a newly created resource in storage.
      *
@@ -95,6 +102,21 @@ class ReservationController extends Controller
         $reservations = Reservation::create($attributes);
         return redirect()->route('backreservationsvalider');
     }
+
+    // public function storeBackDetails(Request $request)
+    // {
+    //     //
+    //     $attributes = request()->validate([
+    //         'account_id'=>'required',
+    //         'name'=>'required',
+    //         'email'=>'required',
+    //         'motif'=>'required',
+    //         'date'=>'required',
+    //         'timeslot'=>'required',
+    //     ]);
+    //     $reservations = Reservation::create($attributes);
+    //     return redirect()->route('backreservationsvalider');
+    // }
 
     /**
      * Display the specified resource.
@@ -136,8 +158,10 @@ class ReservationController extends Controller
      * @param  \App\Reservation  $reservation
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Reservation $reservation)
+    public function destroy($id)
     {
-        //
+        $reservations = Reservation::findOrFail($id);
+        $reservations-> delete();
+        return redirect()->route('backreservationsdates');
     }
 }
