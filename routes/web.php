@@ -43,7 +43,7 @@ Route::get('admin/devis', 'EchangesController@index')->name('admindevis');
 Route::get('admin/devis/edit/{id}', 'EchangesController@edit');
 Route::post('admin/devis/edit/{id}', 'EchangesController@update');
 Route::delete('admin/devis/delete/{id}', 'EchangesController@destroy');
-
+Route::get('admin/devis/{id}', 'EchangesController@show');
 
 // Partie Réservation
 Route::get('reservations/dates', 'ReservationController@index')->name('reservationsdates');
