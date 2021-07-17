@@ -1,5 +1,8 @@
 <?php
 
+require 'C:/wamp64/www/DigiCars/vendor/autoload.php';
+use Spipu\Html2Pdf\Html2Pdf;
+
 $url = "$_SERVER[REQUEST_URI]";
 $idParse = explode('/', $url);
 $id = $idParse[3];
@@ -35,212 +38,205 @@ while($row = mysqli_fetch_assoc($querySelect)) {
     $option_3 = $row['option3'];
     $option_4 = $row['option4'];
 
-}
-include($_SERVER['DOCUMENT_ROOT'].'/lib/html2pdf.php');
+    // Informations devis
+    $quantite = $row['quantite'];
+    $total = $row['total'];
 
-$user = array(
-    "id" => 1,
-    "address" => "79 Avenue Georges Clémenceau\nNanterre 92000 -",
-    "rcs" => "42091194300032",
-    "tva" => "FR26420911943",
-    "tel" => "+33147259796"
-);
+    $sql = "SELECT * FROM echanges WHERE id = '$id';";
+    $querySelect = mysqli_query($link, $sql);
 
-$client = array(
-    "id" => 1,
-    "firstname" => "Luc",
-    "lastname" => "Kennedy",
-    "mail" => "luc.kennedy@gmail.com",
-    "portable" => "06.32.23.15.58",
-    "address" => "5 Avenue du Boulevard Maréchal Juin\n14000 Caen",
-    "infos" => "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium eos tempora, magni delectus porro cum labore eligendi."
-);
-
-$project = array(
-    "id" => 1,
-    "name" => "Création d'un Portfolio",
-    "status" => 1,
-    "infos" => "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium eos tempora, magni delectus porro cum labore eligendi.",
-    "created" => 1,
-    "paid" => false,
-    "client_id" => 1,
-    "user_id" => 1
-);
-
-$tasks[] = array(
-    "id" => 1,
-    "ref" => "96ER1",
-    "description" => "Veille technologique",
-    "price" => 200,
-    "quantity" => 1,
-    "project_id" => 1
-);
-
-$tasks[] = array(
-    "id" => 2,
-    "ref" => "152DE",
-    "description" => "Création et intégration d'un thème pour Wordpress",
-    "price" => 500,
-    "quantity" => 1,
-    "project_id" => 1
-);
-
-$tasks[] = array(
-    "id" => 3,
-    "ref" => "25365",
-    "description" => "Développement d'un plugin Wordpress sur mesure pour le client",
-    "price" => 1000,
-    "quantity" => 1,
-    "project_id" => 1
-);
-
-ob_start();
-$total = 0;
-$total_tva = 0;
-?>
-
-<style type="text/css">
-    table {
-        width: 100%;
-        color: #717375;
-        font-family: helvetica;
-        line-height: 5mm;
-        border-collapse: collapse;
+    while($data = mysqli_fetch_assoc($querySelect)) {
+        $date = $data['created_at'];
     }
-    h2  { margin: 0; padding: 0; }
-    p { margin: 5px; }
 
-    .border th {
-        border: 1px solid #000;
-        color: white;
-        background: #000;
-        padding: 5px;
-        font-weight: normal;
-        font-size: 14px;
-        text-align: center; }
-    .border td {
-        border: 1px solid #CFD1D2;
-        padding: 5px 10px;
-        text-align: center;
+    $site = array(
+        "id" => 1,
+        "address" => "88 Boulevard Gallieni\n92130 - Issy-les-Moulineaux",
+        "tel" => "01.02.03.04.05",
+        "email" => "contact@digicars.com"
+    );
+
+    if($id_client !== "") {
+        $client = array(
+            "id" => "$id_client",
+            "name" => "$name",
+            "email" => "$email",
+        );
     }
-    .no-border {
-        border-right: 1px solid #CFD1D2;
-        border-left: none;
-        border-top: none;
-        border-bottom: none;
+
+    if($id_vehicule !== "") {
+        $tasks[] = array(
+            "id" => "$id_vehicule",
+            "marque" => "$marque",
+            "modele" => "$modele",
+            "annee" => "$annee",
+            "description" => "$marque $modele de $annee",
+            "prix" => "$prix",
+            "quantite" => "$quantite"
+        );
+
+        if($option_1 !== "") {
+            $tasks[] = array(
+                "description" => "Option 1 : $option_1",
+                "prix" => "0",
+                "quantite" => "1"
+            );
+        }
+
+        if($option_2 !== "") {
+            $tasks[] = array(
+                "description" => "Option 2 : $option_2",
+                "prix" => "0",
+                "quantite" => "1"
+            );
+        }
+
+        if($option_3 !== "") {
+            $tasks[] = array(
+                "description" => "Option 3 : $option_3",
+                "prix" => "0",
+                "quantite" => "1"
+            );
+        }
+
+        if($option_4 !== "") {
+            $tasks[] = array(
+                "description" => "Option 4 : $option_4",
+                "prix" => "0",
+                "quantite" => "1"
+            );
+        }
     }
-    .space { padding-top: 250px; }
 
-    .10p { width: 10%; } .15p { width: 15%; }
-    .25p { width: 25%; } .50p { width: 50%; }
-    .60p { width: 60%; } .75p { width: 75%; }
-</style>
+    ob_start();
 
-<page backtop="10mm" backleft="10mm" backright="10mm" backbottom="10mm" footer="page;">
+    ?>
+    <style type="text/css">
+        table {
+            width: 100%;
+            color: #717375;
+            font-family: helvetica;
+            line-height: 5mm;
+            border-collapse: collapse;
+        }
+        h2  { margin: 0; padding: 0; }
+        p { margin: 5px; }
 
-    <page_footer>
-        <hr />
-        <p>Fait a Paris, le <?php echo date("d/m/y"); ?></p>
-        <p>Signature du particulier, suivie de la mension manuscrite "bon pour accord".</p>
-        <p>&nbsp;</p>
-    </page_footer>
+        .border th {
+            border: 1px solid #000;
+            color: white;
+            background: #000;
+            padding: 5px;
+            font-weight: normal;
+            font-size: 14px;
+            text-align: center; }
+        .border td {
+            border: 1px solid #CFD1D2;
+            padding: 5px 10px;
+            text-align: center;
+        }
+        .no-border {
+            border-right: 1px solid #CFD1D2;
+            border-left: none;
+            border-top: none;
+            border-bottom: none;
+        }
+        .space { padding-top: 250px; }
 
-    <table style="vertical-align: top;">
-        <tr>
-            <td class="75p">
-                <div class="img">
-                    <img src="images/logo.jpg" alt="logo" style="width: 350px;">
-                </div>
-                <?php echo nl2br($user['address']); ?><br />
-                <strong>R.C.S. : </strong> <?php echo $user['rcs']; ?><br />
-                <strong>TVA Intracommunautaire : </strong><?php echo $user['tva']; ?><br />
-                <strong>Tél. : </strong><?php echo $user['tel']; ?>
-            </td>
-            <td class="25p">
-                <strong><?php echo $client['firstname']." ".$client['lastname']; ?></strong><br />
-                <?php echo nl2br($client['address']); ?><br />
-            </td>
-        </tr>
-    </table>
+        .10p { width: 10%; } .15p { width: 15%; }
+        .25p { width: 25%; } .50p { width: 50%; }
+        .60p { width: 60%; } .75p { width: 75%; }
+    </style>
 
-    <table style="margin-top: 50px;">
-        <tr>
-            <td class="50p"><h2>Devis n°14</h2></td>
-            <td class="50p" style="text-align: right;">Emis le <?php echo date("d/m/y"); ?></td>
-        </tr>
-        <tr>
-            <td style="padding-top: 15px;" colspan="2"><strong>Objectif:</strong> <?php echo $project['name']; ?></td>
-        </tr>
-    </table>
+    <page backtop="10mm" backleft="10mm" backright="10mm" backbottom="10mm" footer="page;">
 
-    <table style="margin-top: 30px;"class="border">
-        <thead>
-        <tr>
-            <th class="50p">Description</th>
-            <th class="10p">Quantité</th>
-            <th class="20p">Prix Unitaire</th>
-            <th class="20p">Montant</th>
-        </tr>
-        </thead>
-        <tbody>
-        <?php foreach ($tasks as $task): ?>
-        <tr>
-            <td><?php echo $task['description']; ?></td>
-            <td><?php echo $task['quantity']; ?></td>
-            <td><?php echo $task['price']; ?> &euro;</td>
-            <td><?php
-                $price_tva = $task['price']*1.2;
-                echo $price_tva;
-                ?>
-                &euro;</td>
+        <page_footer>
+            <hr />
+            <p>Fait a Issy-les-Moulineaux, le <?php echo date("d/m/y", strtotime($date)); ?></p>
+            <p>Signature du client :</p>
+            <p>&nbsp;</p>
+        </page_footer>
 
-            <?php
-            $total += $task['price'];
-            $total_tva += $price_tva;
-            ?>
-        </tr>
-        <?php endforeach ?>
+        <table style="vertical-align: top;">
+            <tr>
+                <td class="75p">
+                    <p style="font-weight: bold; font-size: 32px; text-transform: uppercase; line-height: 80px; color: black;">Digi<em style="font-style: normal; color: #31d900; font-weight: bold;">Cars</em></p>
+                    <?php echo nl2br($site['address']); ?><br />
+                    <strong>Téléphone : </strong><?php echo $site['tel']; ?><br />
+                    <strong>Email : </strong><?php echo $site['email']; ?>
+                </td>
+                <td class="25p">
+                    <?php echo 'ID Client : ' . $client['id']; ?><br />
+                    <strong><?php echo $client['name']; ?></strong><br />
+                    <?php echo $client['email']; ?>
+                </td>
+            </tr>
+        </table>
 
-        <tr>
-            <td class="space"></td>
-            <td></td>
-            <td></td>
-            <td></td>
-        </tr>
+        <table style="margin-top: 50px;">
+            <tr>
+                <td class="50p"><h2>Devis n°<?=$id?></h2></td>
+                <td class="50p" style="text-align: right;">Emis le <?php echo date("d/m/y", strtotime($date)); ?></td>
+            </tr>
+        </table>
 
-        <tr>
-            <td colspan="2" class="no-border"></td>
-            <td style="text-align: center;" rowspan="3"><strong>Total:</strong></td>
-            <td>HT : <?php echo $total; ?> &euro;</td>
-        </tr>
-        <tr>
-            <td colspan="2" class="no-border"></td>
-            <td>TVA : <?php echo ($total_tva - $total); ?> &euro;</td>
-        </tr>
-        <tr>
-            <td colspan="2" class="no-border"></td>
-            <td>TTC : <?php echo $total_tva; ?> &euro;</td>
-        </tr>
-        </tbody>
-    </table>
+        <table style="margin-top: 30px; max-width: 100%" class="border">
+            <thead>
+            <tr>
+                <th class="75p">Description</th>
+                <th class="10p">Quantité</th>
+                <th class="15p">Montant</th>
+            </tr>
+            </thead>
+            <tbody>
+            <?php foreach ($tasks as $task): ?>
+            <tr>
+                <td><?php echo $task['description']; ?></td>
+                <td><?php echo $task['quantite']; ?></td>
+                <td><?php echo $task['prix']; ?> &euro;</td>
+            </tr>
+            <?php endforeach ?>
 
-</page>
+            <tr>
+                <td class="space"></td>
+                <td></td>
+                <td></td>
+            </tr>
+
+            <tr>
+                <td colspan="1" class="no-border"></td>
+                <td style="text-align: center;" rowspan="3"><strong>Total:</strong></td>
+                <td>HT : <?php echo $total*0.8; ?> &euro;</td>
+            </tr>
+            <tr>
+                <td colspan="1" class="no-border"></td>
+                <td>TVA : <?php echo $total*0.2; ?> &euro;</td>
+            </tr>
+            <tr>
+                <td colspan="1" class="no-border"></td>
+                <td>TTC : <?php echo $total; ?> &euro;</td>
+            </tr>
+            </tbody>
+        </table>
+
+    </page>
 
 <?php
 $content = ob_get_clean();
-try {
-    $pdf = new HTML2PDF("p","A4","fr");
-    $pdf->pdf->SetAuthor('DOE John');
-    $pdf->pdf->SetTitle('Devis 14');
-    $pdf->pdf->SetSubject('Création d\'un Portfolio');
-    $pdf->pdf->SetKeywords('HTML2PDF, Devis, PHP');
+try
+{
+    $pdf = new HTML2PDF('P', 'A4', 'fr');
+    $pdf->pdf->SetDisplayMode('fullpage');
+    $pdf->pdf->SetTitle('Devis n°'."$id".'.pdf');
     $pdf->writeHTML($content);
-    $pdf->Output('Devis.pdf');
-    // $pdf->Output('Devis.pdf', 'D');
-} catch (HTML2PDF_exception $e) {
-    die($e);
+    $pdf->Output('Devis n°'."$id".'.pdf');
+    die();
+}
+catch(HTML2PDF_exception $e)
+{
+    die($e.''. __LINE__ );
 }
 
-
+}
 ?>
 

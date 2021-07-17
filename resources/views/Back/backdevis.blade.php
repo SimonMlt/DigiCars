@@ -28,7 +28,7 @@
                     <th>{{ $quote->quantite }}</th>
                     <th>{{ $quote->total }}€</th>
                     <th><a href="{{ url('admin/devis/edit/'.$quote->id) }}">Modifier</a></th>
-                    <th><a href="#">Voir</a></th>
+                    <th><a href="{{ url('admin/devis/'.$quote->id) }}" target="_blank">Voir</a></th>
                 </tr>
             @endforeach
             </tbody>
