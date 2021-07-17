@@ -26,6 +26,13 @@ class ReservationController extends Controller
         return view('reservationvalider');
     }
 
+    public function index3()
+    {
+        //
+        $reservations = Reservation::get()->all();
+        return view('listereservations', compact('reservations'));
+    }
+
     public function indexBack()
     {
         //
