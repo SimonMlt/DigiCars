@@ -18,11 +18,26 @@ class ReservationController extends Controller
         $reservations = Reservation::get()->all();
         return view('reservationdates', compact('reservations'));
     }
+    
 
     public function index2()
     {
         //
         return view('reservationvalider');
+    }
+
+    public function indexBack()
+    {
+        //
+        $reservations = Reservation::get()->all();
+        return view('backreservationdates', compact('reservations'));
+    }
+    
+
+    public function indexBack2()
+    {
+        //
+        return view('backreservationvalider');
     }
 
     /**
@@ -34,6 +49,13 @@ class ReservationController extends Controller
     {
         //
         return view('reservationheures');
+
+    }
+
+    public function createBack()
+    {
+        //
+        return view('backreservationheures');
 
     }
 
@@ -56,6 +78,21 @@ class ReservationController extends Controller
         ]);
         $reservations = Reservation::create($attributes);
         return redirect()->route('reservationsvalider');
+    }
+
+    public function storeBack(Request $request)
+    {
+        //
+        $attributes = request()->validate([
+            'account_id'=>'required',
+            'name'=>'required',
+            'email'=>'required',
+            'motif'=>'required',
+            'date'=>'required',
+            'timeslot'=>'required',
+        ]);
+        $reservations = Reservation::create($attributes);
+        return redirect()->route('backreservationsvalider');
     }
 
     /**

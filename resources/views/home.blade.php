@@ -66,7 +66,7 @@
                 @foreach ($vehicules as $vehicule)
                     <div class="col-lg-4">
                         <div class="trainer-item">
-                            <div class="image-thumb">
+                            <div class="image-thumb" style="height:200px;">
                                 <img src="{{ asset('storage/files/'.$vehicule->filename) }}" alt="">
                             </div>
                             <div class="down-content">

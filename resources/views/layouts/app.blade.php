@@ -87,6 +87,7 @@
                                     @if(Auth::user()->is_admin)
                                         <a class="dropdown-item" href="{{ route('adminvehicules') }}">Nos voitures</a>
                                         <a class="dropdown-item" href="{{ route('admindevis') }}">Liste des devis</a>
+                                        <a class="dropdown-item" href="{{ route('backreservationsdates') }}">Gestion des réservations</a>
                                     @endif
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
