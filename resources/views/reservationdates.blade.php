@@ -138,7 +138,20 @@
                 if($totalbookings == 16){
                     $calendar.="<td class='$today'><h4 class='mb-3'>$currentDay</h4> <a href='#' class='btn btn-warning btn-xs'>Complet</a>";
                 }else{
-                    $calendar.="<td class='$today'><h4 class='mb-3'>$currentDay</h4> <a href='heures?date=".$date."' class='btn btn-success btn-xs'>Disponible</a>";
+                    ?>
+                    @auth
+                    <?php
+                        $calendar.="<td class='$today'><h4 class='mb-3'>$currentDay</h4> <a href='heures?date=".$date."' class='btn btn-success btn-xs'>Disponible</a>";
+                    ?>
+                    @endauth
+                    @guest
+                        <?php
+                        $calendar.="<td class='$today'><h4 class='mb-3'>$currentDay</h4> <a href='http://127.0.0.1:8000/login' class='btn btn-success btn-xs'>Disponible</a>";
+                        
+                        ?>
+                    @endguest
+                    <?php
+                    
                 }
             }
 
