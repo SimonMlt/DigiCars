@@ -55,13 +55,13 @@ Route::get('reservations/heures', 'ReservationController@create');
 Route::post('reservations/heures', 'ReservationController@store');
 
 // Partie Réservation Back
-Route::get('Back/backreservations/dates', 'ReservationController@indexBack')->name('backreservationsdates');
+Route::get('admin/backreservations/dates', 'ReservationController@indexBack')->name('backreservationsdates');
 
-Route::get('Back/backreservations/valider', 'ReservationController@indexBack2')->name('backreservationsvalider');
+Route::get('admin/backreservations/valider', 'ReservationController@indexBack2')->name('backreservationsvalider');
 
 
-Route::get('Back/backreservations/heures', 'ReservationController@createBack');
-Route::post('Back/backreservations/heures', 'ReservationController@storeBack');
+Route::get('admin/backreservations/heures', 'ReservationController@createBack');
+Route::post('admin/backreservations/heures', 'ReservationController@storeBack');
 
 
 

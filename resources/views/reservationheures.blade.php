@@ -98,7 +98,7 @@ function timeslots($duration,$cleanup, $start, $end){
     <h1 class="text-center" style="font-size: 32px;font-weight: 700;text-transform: uppercase;">Horaire du
         <?php
         setlocale (LC_TIME, 'fr_FR.utf8','fra'); 
-        echo utf8_encode(ucwords(strftime('%A %d %B %G', strtotime($date)))), "coucou";
+        echo utf8_encode(ucwords(strftime('%A %d %B %G', strtotime($date))));
         ?></h1><hr>
     <div class="row">
         <div class="col-md-12 mt-3">

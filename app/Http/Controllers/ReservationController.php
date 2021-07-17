@@ -30,14 +30,14 @@ class ReservationController extends Controller
     {
         //
         $reservations = Reservation::get()->all();
-        return view('backreservationdates', compact('reservations'));
+        return view('Back/backreservationdates', compact('reservations'));
     }
     
 
     public function indexBack2()
     {
         //
-        return view('backreservationvalider');
+        return view('Back/backreservationvalider');
     }
 
     /**
@@ -55,7 +55,7 @@ class ReservationController extends Controller
     public function createBack()
     {
         //
-        return view('backreservationheures');
+        return view('Back/backreservationheures');
 
     }
 
