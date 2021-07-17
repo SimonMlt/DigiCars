@@ -120,7 +120,7 @@ function timeslots($duration,$cleanup, $start, $end){
                     <div class="col-md-12 mb-5">
                         <div class="form-group">
                             <?php if(in_array($ts, $bookings)){?>
-                            <button class="btn btn-primary book2" data-timeslot="<?php echo $ts; ?>" data-date="<?php echo $date; ?>"><?php echo $ts; ?></button>
+                            <a class="btn btn-warning" href="{{url('/admin/backreservations/details?heure='.$ts.'&date='.$date)}}" data-timeslot="<?php echo $ts; ?>" data-date="<?php echo $date; ?>"><?php echo $ts; ?></a>
                             <?php }else {?>
                             <button class="btn btn-success book" value="<?php echo $ts; ?>" data-timeslot="<?php echo $ts; ?>"><?php echo $ts; ?></button>
                             <?php } ?>
@@ -135,7 +135,7 @@ function timeslots($duration,$cleanup, $start, $end){
                 <div class="col-md-12 mb-5">
                     <div class="form-group">
                         <?php if(in_array($ts, $bookings)){?>
-                        <button class="btn btn-primary book2" data-timeslot="<?php echo $ts; ?>" data-date="<?php echo $date; ?>"><?php echo $ts; ?></button>
+                        <button class="btn btn-warning" data-timeslot="<?php echo $ts; ?>" data-date="<?php echo $date; ?>"><?php echo $ts; ?></button>
                         <?php }else {?>
                         <button class="btn btn-success book" value="<?php echo $ts; ?>" data-timeslot="<?php echo $ts; ?>"><?php echo $ts; ?></button>
                         <?php } ?>
@@ -151,7 +151,7 @@ function timeslots($duration,$cleanup, $start, $end){
                     <div class="col-md-12 mb-5">
                         <div class="form-group">
                             <?php if(in_array($ts, $bookings)){?>
-                            <button class="btn btn-primary book2" data-timeslot="<?php echo $ts; ?>" data-date="<?php echo $date; ?>"><?php echo $ts; ?></button>
+                            <button class="btn btn-warning" data-timeslot="<?php echo $ts; ?>" data-date="<?php echo $date; ?>"><?php echo $ts; ?></button>
                             <?php }else {?>
                             <button class="btn btn-success book" value="<?php echo $ts; ?>" data-timeslot="<?php echo $ts; ?>"><?php echo $ts; ?></button>
                             <?php } ?>
