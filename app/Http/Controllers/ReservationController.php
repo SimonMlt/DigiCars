@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Reservation;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ReservationController extends Controller
 {
@@ -29,7 +30,10 @@ class ReservationController extends Controller
     public function index3()
     {
         //
-        $reservations = Reservation::get()->all();
+        // $user = Auth::user();
+        $id = Auth::id();
+        // Auth::id();
+        $reservations = Reservation::where('account_id','=', "{$id}")->where('date','>=', date("y/m/d"))->orderBy('date', 'asc')->orderBy('timeslot', 'asc')->get()->all();
         return view('listereservations', compact('reservations'));
     }
 
@@ -142,10 +146,18 @@ class ReservationController extends Controller
      * @param  \App\Reservation  $reservation
      * @return \Illuminate\Http\Response
      */
-    public function edit(Reservation $reservation)
+    // public function edit(Reservation $reservation)
+    // {
+    //     //
+    // }
+
+    public function edit($id)
     {
         //
+        $reservations = Reservation::findOrFail($id);
+        return view ('editreservation', compact('reservations'));
     }
+
 
     /**
      * Update the specified resource in storage.
@@ -154,9 +166,24 @@ class ReservationController extends Controller
      * @param  \App\Reservation  $reservation
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Reservation $reservation)
+    // public function update(Request $request, Reservation $reservation)
+    // {
+    //     //
+    // }
+
+    public function update(Request $request, $id)
     {
-        //
+        $attributes = request()->validate([
+            'date' => 'required',
+            'timeslot' => 'required',
+            'name' => 'required',
+            'email' => 'required',
+            'motif' => 'required',
+            
+        ]);
+        $reservations = Reservation::findOrFail($id);
+        $reservations->update($attributes);
+        return redirect()->route('reservationsliste');
     }
 
     /**
@@ -170,5 +197,13 @@ class ReservationController extends Controller
         $reservations = Reservation::findOrFail($id);
         $reservations-> delete();
         return redirect()->route('backreservationsdates');
+    }
+
+    public function destroyList($id)
+    {
+        //
+        $reservations = Reservation::findOrFail($id);
+        $reservations->delete();
+        return redirect()->route('reservationsliste');
     }
 }

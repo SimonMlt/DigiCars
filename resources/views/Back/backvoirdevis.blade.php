@@ -1,6 +1,4 @@
-<?php
-
-require 'C:/Users/itach/Documents/Hitema/Projet Automobile/DigiCars/vendor/autoload.php';
+<?php  
 use Spipu\Html2Pdf\Html2Pdf;
 
 $url = "$_SERVER[REQUEST_URI]";
