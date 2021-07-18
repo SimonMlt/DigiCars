@@ -8,7 +8,7 @@
                     <div class="cta-content">
                         <br>
                         <br>
-                        <h2>Réservez-<em>un créneau</em></h2>
+                        <h2>Réservez <em>un créneau</em></h2>
                     </div>
                 </div>
             </div>
