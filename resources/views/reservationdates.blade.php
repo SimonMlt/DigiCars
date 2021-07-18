@@ -67,9 +67,9 @@
         // Create the table tag opener and day headers
 
         $datetoday = date('Y-m-d');
-        setlocale (LC_TIME, 'fr_FR.utf8','fra'); 
-        $currentMonth = ucfirst(strftime("%B")); 
-        
+        setlocale (LC_TIME, 'fr_FR.utf8','fra');
+        $currentMonth = ucfirst(strftime("%B"));
+
 
         $calendar = "<table class='table table-bordered'>";
         $calendar .= "<center><h2 style='font-size: 32px;font-weight: 700;text-transform: uppercase;' class='mb-2'>$monthName $year</h2>";
@@ -153,6 +153,7 @@
                     <?php
                     
                 }
+
             }
 
 
@@ -311,7 +312,7 @@
             /*}*/
 
             .today{
-                
+
                 background:#3cff00;
             }
 

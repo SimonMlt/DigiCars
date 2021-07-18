@@ -109,22 +109,22 @@ function timeslots($duration,$cleanup, $start, $end){
 <div class="container mt-5" style="padding-top: 20px">
     <h1 class="text-center" style="font-size: 32px;font-weight: 700;text-transform: uppercase;">Horaires du
         <?php
-        setlocale (LC_TIME, 'fr_FR.utf8','fra'); 
+        setlocale (LC_TIME, 'fr_FR.utf8','fra');
         echo utf8_encode(ucwords(strftime('%A %d %B %G', strtotime($date))));
-        
+
         ?>
-    </h1>    
-   
+    </h1>
+
     <div class="row">
         <div class="col-md-12 mt-3">
             <?php echo isset($msg)?$msg:""; ?>
         </div>
-        
+
         <?php $timeslots = timeslots($duration,$cleanup, $start, $end);
         $countH = 0;
         foreach($timeslots as $ts){
         ?>
-            <?php 
+            <?php
             if($countH == 0){
                 $countH = $countH +1;
             ?>
@@ -139,7 +139,7 @@ function timeslots($duration,$cleanup, $start, $end){
 
                         </div>
                     </div>
-        
+
             <?php
             }else if($countH != 4){
                 $countH = $countH +1;
@@ -156,7 +156,7 @@ function timeslots($duration,$cleanup, $start, $end){
                 </div>
             <?php
             }else if ($countH = 4){
-            
+
             ?>
                 </div>
                 <div class="col-md-3 mb-3">
@@ -170,12 +170,12 @@ function timeslots($duration,$cleanup, $start, $end){
 
                         </div>
                     </div>
-        
+
             <?php
                 $countH = 1;
             } ?>
         <?php } ?>
-    
+
 </div>
 </div>
 <div id="myModal" class="modal fade" role="dialog">
@@ -204,7 +204,7 @@ function timeslots($duration,$cleanup, $start, $end){
                                 <label for="">Nom</label>
                                 <input required type="text" class="form-control" name="name">
                             </div>
-                            
+
                             <div class="form-group">
                                 <label for="">Email</label>
                                 <input required type="email" class="form-control" name="email">
@@ -257,7 +257,7 @@ function timeslots($duration,$cleanup, $start, $end){
                                 <label for="">Nom</label>
                                 <input required type="text" class="form-control" name="name">
                             </div>
-                            
+
                             <div class="form-group">
                                 <label for="">Email</label>
                                 <input required type="email" class="form-control" name="email">
@@ -286,24 +286,25 @@ function timeslots($duration,$cleanup, $start, $end){
 {{--<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>--}}
 {{--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>--}}
 <script>
-    
+
     $(".book").click(function(){
         var timeslot = $(this).attr('data-timeslot');
         $("#slot").html(timeslot);
         $("#timeslot").val(timeslot);
-        $("#myModal").modal("show");   
+        $("#myModal").modal("show");
     });
 
     $(".book2").click(function(){
         var timeslot = $(this).attr('data-timeslot');
-        // var date = $(this).attr('data-date');
+        var date = $(this).attr('data-date');
         $("#slot2").html(timeslot);
         $("#timeslot2").val(timeslot);
-        $("#myModal2").modal("show");   
+        $("#timeslot2").val(timeslot);
+        $("#myModal2").modal("show");
     });
-    
 
-    
+
+
 </script>
 </body>
 

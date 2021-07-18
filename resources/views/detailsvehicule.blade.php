@@ -31,7 +31,7 @@
                         <li><a href='#tabs-1'><i class="fa fa-cog"></i> Points clés</a></li>
                         <li><a href='#tabs-2'><i class="fa fa-info-circle"></i> Description</a></li>
                         <li><a href='#tabs-3'><i class="fa fa-plus-circle"></i> Options</a></li>
-                        <li><a href='#tabs-4'><i class="fa fa-phone"></i> Contact -  Réservation</a></li>
+                        <li><a href='#tabs-4'><i class="fa fa-phone"></i> Contact - Réservation</a></li>
                     </ul>
                 </div>
                 <div class="col-lg-8">
@@ -157,7 +157,7 @@
 
                             <div class="row">
                                 <div class="col-sm-6">
-                                    <a href="{{ url('reservations/dates/'.$vehicules->id) }}"><button>Réserver un créneau</button></a>
+                                    <a href="{{ url('reservations/dates/') }}"><button class="btn-outline-success">Réserver un créneau</button></a>
                                 </div>
 
                             </div>
