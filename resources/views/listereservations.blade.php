@@ -9,34 +9,34 @@
     </head>
 
     <body>
-    <div class="container mt-5" style="padding-top:100px;">
-        <div class="row">
-            <div class="col-md-12 text-center">
-                @foreach ($reservations as $reservation)
-                    <div class="row text-center">
-                        <div class="col-md-2"></div>
-                        <div class="col-md-8">
-                            <div class="card" style=" border: 2px solid rgba(0,0,0,.2);border-bottom:none; border-bottom-left-radius: 0px 0px; border-bottom-right-radius: 0px 0px; background:#29b100;color:white;">
-                                <div class="card-body " style="border-bottom:none;">
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <i class="far fa-calendar-alt" style="font-size: 1.2vw;"></i> {{ $reservation->date }}
-                                        </div>
-                                        <div class="col-md-6">
-                                            <i class="far fa-clock" style="font-size: 1.2vw;"></i> {{ $reservation->timeslot }}
+        <div class="container mt-5" style="padding-top:50px;">
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    @foreach ($reservations as $reservation)
+                        <div class="row text-center">
+                            <div class="col-md-2"></div>
+                            <div class="col-md-8">
+                                <div class="card" style=" border: 2px solid rgba(0,0,0,.2);border-bottom:none; border-bottom-left-radius: 0px 0px; border-bottom-right-radius: 0px 0px; background:#29b100;color:white;">
+                                    <div class="card-body " style="border-bottom:none;">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <i class="far fa-calendar-alt" style="font-size: 1.2vw;"></i> <label style="font-size:1vw" for="">{{ $reservation->date }}</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <i class="far fa-clock" style="font-size: 1.2vw;"></i> <label style="font-size:1vw" for="">{{ $reservation->timeslot }}</label>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="card" style="border: 2px solid rgba(0,0,0,.2);border-top:none; border-top-left-radius: 0px 0px; border-top-right-radius: 0px 0px;">
-                                <div class="card-body " style="border-top:none; ">
-                                    <i class="fas fa-user" style="font-size: 1.2vw;"></i> {{ $reservation->name }}
-                                
+                                <div class="card" style="border: 2px solid rgba(0,0,0,.2);border-top:none; border-top-left-radius: 0px 0px; border-top-right-radius: 0px 0px;">
+                                    <div class="card-body " style="border-top:none; ">
+                                        <i class="fas fa-user" style="font-size: 1vw;"></i> <label class="text-uppercase" style="font-size:1vw" for="">{{ $reservation->name }}</label>                              
                                         <hr>
                                         <div class="row text-center">
                                             <div class="col-md-1">
                                             </div>
                                             <div class="col-md-2">
+                                                <br>
                                                 @if ($reservation->motif == "Conseil")
                                                     <i class="fas fa-info-circle" style="font-size: 3vw;"></i>
                                                 @elseif ($reservation->motif == "Location")
@@ -49,15 +49,21 @@
                                                 <i class="fas fa-exclamation-circle" style="font-size: 3vw;"></i>
                                                 @endif
                                             </div>
-                                            <div class="col-md-9">
-                                                Email : {{ $reservation->email }}
-
+                                            <div class="col-md-9 text-left">
+                                                Vous avez un rendez-vous prévu le {{ $reservation->date }} à {{ $reservation->timeslot }} pour 
+                                                @if ($reservation->motif == "Conseil")
+                                                    un conseil avec un de nos agents.
+                                                @elseif ($reservation->motif == "Location")
+                                                    la location d'un véhicule.
+                                                @elseif ($reservation->motif == "Achat")
+                                                    l'achat d'un véhicule.
+                                                @endif
                                                 <br>
                                                 <br>
-
-                                                Type de rdv : {{ $reservation->motif }}
+                                                Afin de vous informer d'une éventuel contrainte toutes les informations vous seront envoyé a l'adresse suivante : 
+                                                <br>
+                                                <i class="far fa-envelope"></i> : {{ $reservation->email }}
                                             </div>
-                                            
                                         </div>
                                         <hr>
                                         <div class="row">
@@ -68,24 +74,17 @@
                                                 <button type="button" class="btn btn-danger"><i class="far fa-trash-alt"></i> Supprimer</button>
                                             </div>
                                         </div>
-                                    
-
-                                    
+                                    </div>
                                 </div>
                             </div>
-                            
                         </div>
+                        <br>
+                    @endforeach
                 </div>
-                <br>
-            @endforeach
             </div>
         </div>
-    </div>
-    <script src="https://kit.fontawesome.com/772e7ca8e4.js" crossorigin="anonymous"></script>
-    
-
+        <script src="https://kit.fontawesome.com/772e7ca8e4.js" crossorigin="anonymous"></script>
     </body>
-
     </html>
 
 @endsection
