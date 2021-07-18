@@ -1,6 +1,10 @@
 <?php
+<<<<<<< HEAD
 
 // require 'C:/wamp64/www/DigiCars/vendor/autoload.php';
+=======
+    
+>>>>>>> b1501758f194834c31152645d6869ec7e0e9c03f
 use Spipu\Html2Pdf\Html2Pdf;
 
 $url = "$_SERVER[REQUEST_URI]";

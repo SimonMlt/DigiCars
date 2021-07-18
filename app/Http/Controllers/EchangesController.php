@@ -6,6 +6,7 @@ use App\Echanges;
 use App\User;
 use App\Vehicules;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class EchangesController extends Controller
 {
@@ -20,6 +21,12 @@ class EchangesController extends Controller
         return view('Back/backdevis', compact('devis'));
     }
 
+    public function index2()
+    {
+        $id = Auth::id();
+        $devis = Echanges::where('id_client', '=', "{$id}")->get()->all();
+        return view('listedevis', compact('devis'));
+    }
 
     /**
      * Show the form for creating a new resource.
