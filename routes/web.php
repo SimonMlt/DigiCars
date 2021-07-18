@@ -46,6 +46,9 @@ Route::post('reservations/heures', 'ReservationController@store');
 
 Route::get('reservations/liste', 'ReservationController@index3')->name('reservationsliste');
 
+Route::delete('reservations/liste/delete/{id}', 'ReservationController@destroyList');
+
+
 
 // Partie Véhicule
 Route::get('vehicules', 'VehiculesController@index2')->name('vehicules');

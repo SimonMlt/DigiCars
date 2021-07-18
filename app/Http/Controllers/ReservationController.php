@@ -174,4 +174,12 @@ class ReservationController extends Controller
         $reservations-> delete();
         return redirect()->route('backreservationsdates');
     }
+
+    public function destroyList($id)
+    {
+        //
+        $reservations = Reservation::findOrFail($id);
+        $reservations->delete();
+        return redirect()->route('reservationsliste');
+    }
 }

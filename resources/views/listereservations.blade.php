@@ -68,10 +68,28 @@
                                         <hr>
                                         <div class="row">
                                             <div class="col-md-6 text-center">
-                                                <button type="button" class="btn btn-secondary"> <i class="fas fa-sync-alt"></i> Modifier</button>
+                                                <button type="button" class="btn btn-secondary"> <i class="fas fa-sync-alt"></i> Modifier le rendez-vous</button>
                                             </div>
                                             <div class="col-md-6 text-center">
-                                                <button type="button" class="btn btn-danger"><i class="far fa-trash-alt"></i> Supprimer</button>
+                                                <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteModal{{ $reservation->id }}"><i class="fas fa-times"></i> Annuler le rendez-vous</button>
+                                                
+                                                <div class="modal fade" id="deleteModal{{ $reservation->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                    <div class="modal-dialog" role="document">
+                                                      <div class="modal-content">
+                                                        <div class="modal-body">
+                                                            Êtes-vous sure de vouloir annuler votre rendez-vous ? 
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                          <button type="button" class="btn btn-secondary" data-dismiss="modal">Retour</button>
+                                                          <form action="{{ url('reservations/liste/delete/'.$reservation->id) }}" method="POST">
+                                                            @csrf
+                                                            @method('DELETE')
+                                                            <button class="btn btn-danger" type="submit">Annuler le rendez-vous</button>
+                                                        </form>
+                                                        </div>
+                                                      </div>
+                                                    </div>
+                                                  </div>
                                             </div>
                                         </div>
                                     </div>
