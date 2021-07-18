@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Reservation;
 use Illuminate\Http\Request;
-use App\Http\Controllers\Auth;
+use Illuminate\Support\Facades\Auth;
 
 class ReservationController extends Controller
 {
@@ -30,9 +30,10 @@ class ReservationController extends Controller
     public function index3()
     {
         //
+        // $user = Auth::user();
         $id = Auth::id();
         // Auth::id();
-        $reservations = Reservation::where('id','=', "%{$id}%")->get()->all();
+        $reservations = Reservation::where('account_id','=', "{$id}")->where('date','>=', date("y/m/d"))->orderBy('date', 'asc')->orderBy('timeslot', 'asc')->get()->all();
         return view('listereservations', compact('reservations'));
     }
 
