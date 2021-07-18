@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Reservation;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Auth;
 
 class ReservationController extends Controller
 {
@@ -29,7 +30,9 @@ class ReservationController extends Controller
     public function index3()
     {
         //
-        $reservations = Reservation::get()->all();
+        $id = Auth::id();
+        // Auth::id();
+        $reservations = Reservation::where('id','=', "%{$id}%")->get()->all();
         return view('listereservations', compact('reservations'));
     }
 

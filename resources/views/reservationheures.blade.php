@@ -1,7 +1,19 @@
 @extends('layouts.app')
 
 @section('content')
-
+<section class="section section-bg" id="call-to-action" style="background-image: url({{ asset('assets/images/banner-image-1-1920x500.jpg') }})">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-10 offset-lg-1">
+                <div class="cta-content">
+                    <br>
+                    <br>
+                    <h2>Réservez <em>un créneau</em></h2>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 <?php
 $mysqli = new mysqli('localhost', 'root', '', 'digicars');
 if(isset($_GET['date'])){
@@ -95,7 +107,7 @@ function timeslots($duration,$cleanup, $start, $end){
 
 <body>
 <div class="container mt-5" style="padding-top: 20px">
-    <h1 class="text-center" style="font-size: 32px;font-weight: 700;text-transform: uppercase;">Horaire du
+    <h1 class="text-center" style="font-size: 32px;font-weight: 700;text-transform: uppercase;">Horaires du
         <?php
         setlocale (LC_TIME, 'fr_FR.utf8','fra'); 
         echo utf8_encode(ucwords(strftime('%A %d %B %G', strtotime($date))));
