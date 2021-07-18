@@ -36,15 +36,6 @@ Route::get('/contact', function () {
     return view('contact');
 })->name('contact');
 
-// Partie Echanges
-Route::get('admin/devis/create', 'EchangesController@create')->name('createdevis');
-Route::post('admin/devis/create', 'EchangesController@store');
-Route::get('admin/devis', 'EchangesController@index')->name('admindevis');
-Route::get('admin/devis/edit/{id}', 'EchangesController@edit');
-Route::post('admin/devis/edit/{id}', 'EchangesController@update');
-Route::delete('admin/devis/delete/{id}', 'EchangesController@destroy');
-Route::get('admin/devis/{id}', 'EchangesController@show');
-
 // Partie Réservation
 Route::get('reservations/dates', 'ReservationController@index')->name('reservationsdates');
 Route::get('reservations/valider', 'ReservationController@index2')->name('reservationsvalider');
@@ -91,6 +82,18 @@ Route::post('admin/backreservations/details', 'ReservationController@createBackD
 
 Route::delete('admin/backreservations/delete/{id}', 'ReservationController@destroy');
 
+// Partie Echanges
+Route::get('admin/devis/create', 'EchangesController@create')->name('createdevis');
+Route::post('admin/devis/create', 'EchangesController@store');
+Route::get('admin/devis', 'EchangesController@index')->name('admindevis');
+Route::get('admin/devis/edit/{id}', 'EchangesController@edit');
+Route::post('admin/devis/edit/{id}', 'EchangesController@update');
+Route::delete('admin/devis/delete/{id}', 'EchangesController@destroy');
+
 
 });
+
+// Partie Echanges
+Route::get('devis', 'EchangesController@index2');
+Route::get('admin/devis/{id}', 'EchangesController@show');
 
