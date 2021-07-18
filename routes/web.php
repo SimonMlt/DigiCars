@@ -46,6 +46,9 @@ Route::post('reservations/heures', 'ReservationController@store');
 
 Route::get('reservations/liste', 'ReservationController@index3')->name('reservationsliste');
 
+Route::get('reservations/edit/{id}', 'ReservationController@edit');
+Route::post('reservations/edit/{id}', 'ReservationController@update');
+
 Route::delete('reservations/liste/delete/{id}', 'ReservationController@destroyList');
 
 

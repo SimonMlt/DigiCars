@@ -68,7 +68,7 @@
                                         <hr>
                                         <div class="row">
                                             <div class="col-md-6 text-center">
-                                                <button type="button" class="btn btn-secondary"> <i class="fas fa-sync-alt"></i> Modifier le rendez-vous</button>
+                                                <a class="btn btn-secondary" href="{{ url('reservations/edit/'.$reservation->id) }}"> <i class="fas fa-sync-alt"></i> Modifier le rendez-vous</a>
                                             </div>
                                             <div class="col-md-6 text-center">
                                                 <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteModal{{ $reservation->id }}"><i class="fas fa-times"></i> Annuler le rendez-vous</button>

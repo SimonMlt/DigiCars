@@ -145,10 +145,18 @@ class ReservationController extends Controller
      * @param  \App\Reservation  $reservation
      * @return \Illuminate\Http\Response
      */
-    public function edit(Reservation $reservation)
+    // public function edit(Reservation $reservation)
+    // {
+    //     //
+    // }
+
+    public function edit($id)
     {
         //
+        $reservations = Reservation::findOrFail($id);
+        return view ('editreservation', compact('reservations'));
     }
+
 
     /**
      * Update the specified resource in storage.
@@ -157,9 +165,24 @@ class ReservationController extends Controller
      * @param  \App\Reservation  $reservation
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Reservation $reservation)
+    // public function update(Request $request, Reservation $reservation)
+    // {
+    //     //
+    // }
+
+    public function update(Request $request, $id)
     {
-        //
+        $attributes = request()->validate([
+            'date' => 'required',
+            'timeslot' => 'required',
+            'name' => 'required',
+            'email' => 'required',
+            'motif' => 'required',
+            
+        ]);
+        $reservations = Reservation::findOrFail($id);
+        $reservations->update($attributes);
+        return redirect()->route('reservationsliste');
     }
 
     /**
