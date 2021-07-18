@@ -136,7 +136,7 @@
 
                 $totalbookings = checkSlots($mysqli, $date);
                 if($totalbookings == 16){
-                    $calendar.="<td class='$today'><h4 class='mb-3'>$currentDay</h4> <a href='#' class='btn btn-warning btn-xs'>Complet</a>";
+                    $calendar.="<td class='$today'><h4 class='mb-3'>$currentDay</h4> <a class='btn btn-warning btn-xs'>Complet</a>";
                 }else{
                     ?>
                     @auth
