@@ -58,9 +58,12 @@ class EchangesController extends Controller
      * @param  \App\Echanges  $echanges
      * @return \Illuminate\Http\Response
      */
-    public function show(Echanges $echanges)
+    public function show($id)
     {
-        //
+        $devis = Echanges::findOrFail($id);
+        $users = User::get()->all();
+        $vehicules = Vehicules::get()->all();
+        return view('Back/backvoirdevis', compact('devis', 'users', 'vehicules'));
     }
 
     /**
