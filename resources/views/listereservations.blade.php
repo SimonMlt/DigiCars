@@ -20,7 +20,7 @@
                                     <div class="card-body " style="border-bottom:none;">
                                         <div class="row">
                                             <div class="col-md-6">
-                                                <i class="far fa-calendar-alt" style="font-size: 1.2vw;"></i> <label style="font-size:1vw" for="">{{ $reservation->date }}</label>
+                                                <i class="far fa-calendar-alt" style="font-size: 1.2vw;"></i> <label style="font-size:1vw" for="">{{ ucwords(\Carbon\Carbon::parse($reservation->date)->translatedFormat('l j F Y'))  }}</label>
                                             </div>
                                             <div class="col-md-6">
                                                 <i class="far fa-clock" style="font-size: 1.2vw;"></i> <label style="font-size:1vw" for="">{{ $reservation->timeslot }}</label>
@@ -98,6 +98,13 @@
                         </div>
                         <br>
                     @endforeach
+
+                    <nav>
+                        <ul class="pagination pagination-lg justify-content-center">
+                            {{ $reservations->links() }}
+                        </ul>
+                    </nav>
+        
                 </div>
             </div>
         </div>

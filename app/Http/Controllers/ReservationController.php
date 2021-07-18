@@ -33,7 +33,7 @@ class ReservationController extends Controller
         // $user = Auth::user();
         $id = Auth::id();
         // Auth::id();
-        $reservations = Reservation::where('account_id','=', "{$id}")->where('date','>=', date("y/m/d"))->orderBy('date', 'asc')->orderBy('timeslot', 'asc')->get()->all();
+        $reservations = Reservation::where('account_id','=', "{$id}")->where('date','>=', date("y/m/d"))->orderBy('date', 'asc')->orderBy('timeslot', 'asc')->paginate(2);
         return view('listereservations', compact('reservations'));
     }
 
