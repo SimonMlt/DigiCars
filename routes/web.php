@@ -44,6 +44,10 @@ Route::get('demandes/create', 'DemandesController@create')->name('createdemandes
 Route::post('demandes/create', 'DemandesController@store');
 Route::get('demandes', 'DemandesController@index2')->name('demandesliste');
 
+//Edit User
+Route::get('account/edit/{id}', 'AccountController@edit');
+Route::post('account/edit/{id}', 'AccountController@update');
+
 // Partie Réservation
 Route::get('reservations/dates', 'ReservationController@index')->name('reservationsdates');
 Route::get('reservations/valider', 'ReservationController@index2')->name('reservationsvalider');

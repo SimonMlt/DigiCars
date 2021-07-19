@@ -90,8 +90,8 @@
                                         <a class="dropdown-item" href="{{ route('backreservationsdates') }}">Gestion des réservations</a>
                                     @endif
                                         <a class="dropdown-item" href="{{ route('devisliste') }}">Mes devis</a>
-                                    <a class="dropdown-item" href="{{ route('reservationsliste') }}">Mes réservations</a>
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
+                                        <a class="dropdown-item" href="{{ route('reservationsliste') }}">Mes réservations</a>
+                                        <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                                         {{ __('Se déconnecter') }}
