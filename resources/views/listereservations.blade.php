@@ -50,7 +50,7 @@
                                                 @endif
                                             </div>
                                             <div class="col-md-9 text-left">
-                                                Vous avez un rendez-vous prévu le {{ $reservation->date }} à {{ $reservation->timeslot }} pour 
+                                                Vous avez un rendez-vous prévu le {{ ucwords(\Carbon\Carbon::parse($reservation->date)->translatedFormat('l j F Y'))  }} à {{ $reservation->timeslot }} pour 
                                                 @if ($reservation->motif == "Conseil")
                                                     un conseil avec un de nos agents.
                                                 @elseif ($reservation->motif == "Location")
