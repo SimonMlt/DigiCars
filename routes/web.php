@@ -18,6 +18,9 @@ Route::get('/', function () {
     return view('home');
 })->name('index');
 
+// CGU
+Route::get('/cgu', 'CguController@index')->name('cgu');
+
 // Authentification
 Auth::routes();
 
@@ -36,6 +39,11 @@ Route::get('/contact', function () {
     return view('contact');
 })->name('contact');
 
+// Partie Demandes
+Route::get('demandes/create', 'DemandesController@create')->name('createdemandes');
+Route::post('demandes/create', 'DemandesController@store');
+Route::get('demandes', 'DemandesController@index2')->name('demandesliste');
+
 // Partie Réservation
 Route::get('reservations/dates', 'ReservationController@index')->name('reservationsdates');
 Route::get('reservations/valider', 'ReservationController@index2')->name('reservationsvalider');
@@ -50,7 +58,6 @@ Route::get('reservations/edit/{id}', 'ReservationController@edit');
 Route::post('reservations/edit/{id}', 'ReservationController@update');
 
 Route::delete('reservations/liste/delete/{id}', 'ReservationController@destroyList');
-
 
 
 // Partie Véhicule
@@ -96,10 +103,13 @@ Route::get('admin/devis/edit/{id}', 'EchangesController@edit');
 Route::post('admin/devis/edit/{id}', 'EchangesController@update');
 Route::delete('admin/devis/delete/{id}', 'EchangesController@destroy');
 
+// Partie Demandes
+Route::get('admin/demandes', 'DemandesController@index')->name('admindemandes');
+Route::get('admin/demandes/answer/{id}', 'DemandesController@edit');
+Route::get('admin/demandes/answer/{id}', 'DemandesController@update');
 
 });
 
 // Partie Echanges
-Route::get('devis', 'EchangesController@index2');
+Route::get('devis', 'EchangesController@index2')->name('devisliste');
 Route::get('admin/devis/{id}', 'EchangesController@show');
-

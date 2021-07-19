@@ -61,6 +61,11 @@
                             </div>
                         </div>
 
+                        <div class="form-group text-center">
+                            <input id="cgu-check" type="checkbox" name="cgu-check" required>
+                            <span>J'ai lu et j'accepte les <a href="{{ route('cgu') }}">Conditions Générales d'Utilisation</a></span>
+                        </div>
+
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="btn btn-primary">
