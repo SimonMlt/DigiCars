@@ -23,7 +23,7 @@
                 </tr>
             </tbody>
         </table>
-        <form method="POST" action="{{ url('admin/demandes/answer/'.$demandes->id) }}">
+        <form method="POST" action="{{ url('admin/demandes/reponse/'.$demandes->id) }}">
             @csrf
             <div class="col-md-6 offset-md-3">
                 <div class="form-group">

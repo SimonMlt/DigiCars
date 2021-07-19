@@ -138,7 +138,7 @@
                 </div>
                 <button style="margin-top: 20px" type="submit" class="btn btn-primary float-right">Mettre à jour</button>
             </form>
-            <form action="{{ url('vehicules/delete/'.$vehicules->id) }}" method="POST">
+            <form action="{{ url('admin/vehicules/delete/'.$vehicules->id) }}" method="POST">
                 @csrf
                 @method('DELETE')
                 <button style="margin-top: 20px" class="btn btn-danger mb-4 mr-4 float-right" type="submit">Supprimer</button>

@@ -114,7 +114,7 @@
                     <br>
                     <br>
                     <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12" style="width: 80%;margin-left:75%;">
-                        <input type="text" placeholder="Rechercher" name="search"/>
+                        <input type="text" autocomplete="off" placeholder="Rechercher" name="search"/>
                     </div>
                 </form>
                 {{--                <form action="{{ route('vehicules') }}" method="GET">--}}

@@ -74,7 +74,7 @@ class DemandesController extends Controller
      * Show the form for editing the specified resource.
      *
      * @param $id
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Http\Response|\Illuminate\View\View
      */
     public function edit($id)
     {
@@ -87,7 +87,7 @@ class DemandesController extends Controller
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  \App\Echanges  $echanges
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function update(Request $request, $id)
     {
