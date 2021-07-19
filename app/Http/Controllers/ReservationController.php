@@ -48,7 +48,7 @@ class ReservationController extends Controller
     public function indexBack2()
     {
         //
-        return view('Back/backreservationvalider');
+        return view('reservationvalider');
     }
 
     /**
@@ -111,7 +111,7 @@ class ReservationController extends Controller
             'timeslot'=>'required',
         ]);
         $reservations = Reservation::create($attributes);
-        return redirect()->route('backreservationsvalider');
+        return redirect()->route('reservationsvalider');
     }
 
     // public function storeBackDetails(Request $request)
@@ -196,7 +196,7 @@ class ReservationController extends Controller
     {
         $reservations = Reservation::findOrFail($id);
         $reservations-> delete();
-        return redirect()->route('backreservationsdates');
+        return redirect()->route('reservationsdates');
     }
 
     public function destroyList($id)
