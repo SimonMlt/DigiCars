@@ -10,6 +10,4 @@ class Demandes extends Model
 
     protected $fillable = ['id_client','name','email','object','message','status','answer'];
 
-
-
 }

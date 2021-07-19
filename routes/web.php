@@ -106,7 +106,7 @@ Route::delete('admin/devis/delete/{id}', 'EchangesController@destroy');
 // Partie Demandes
 Route::get('admin/demandes', 'DemandesController@index')->name('admindemandes');
 Route::get('admin/demandes/answer/{id}', 'DemandesController@edit');
-Route::get('admin/demandes/answer/{id}', 'DemandesController@update');
+Route::post('admin/demandes/answer/{id}', 'DemandesController@update');
 
 });
 
