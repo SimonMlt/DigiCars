@@ -39,6 +39,11 @@ Route::get('/contact', function () {
     return view('contact');
 })->name('contact');
 
+// Partie Demandes
+Route::get('demandes/create', 'DemandesController@create')->name('createdemandes');
+Route::post('demandes/create', 'DemandesController@store');
+Route::get('demandes', 'DemandesController@index2')->name('demandesliste');
+
 // Partie Réservation
 Route::get('reservations/dates', 'ReservationController@index')->name('reservationsdates');
 Route::get('reservations/valider', 'ReservationController@index2')->name('reservationsvalider');
@@ -53,7 +58,6 @@ Route::get('reservations/edit/{id}', 'ReservationController@edit');
 Route::post('reservations/edit/{id}', 'ReservationController@update');
 
 Route::delete('reservations/liste/delete/{id}', 'ReservationController@destroyList');
-
 
 
 // Partie Véhicule
