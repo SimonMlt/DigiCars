@@ -27,7 +27,7 @@
                     <th>{{ $demande->message }}</th>
                     <th>{{ $demande->status }}</th>
                     <th>{{ $demande->answer }}</th>
-                    <th><a href="{{ url('admin/demandes/answer/'.$demande->id) }}">Répondre</a></th>
+                    <th><a href="{{ url('admin/demandes/reponse/'.$demande->id) }}">Répondre</a></th>
                 </tr>
             @endforeach
             </tbody>
