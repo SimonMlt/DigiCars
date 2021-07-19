@@ -21,15 +21,8 @@ class VehiculesController extends Controller
 
     public function index2(Request $request)
     {
-        //
-//        $category = Vehicules::where( function($query) use($request){
-//            return $request->marque_nom ?
-//                $query->from('vehicules')->where('marque',$request->marque_nom) : '';
-//        })
-//            ->get();
-//
-//        $selected_id = [];
-//        $selected_id['marque'] = $request->marque_nom;
+        // Get the search value from the request
+        $search = $request->input('search');
 
         $vehicules = Vehicules::when($request->marque, function ($query, $marque) {
             return $query->where('marque', 'like', "%{$marque}%");
@@ -43,10 +36,21 @@ class VehiculesController extends Controller
             return $query->orderBy('prix', $request->prix == 'less-expensive' ? 'asc' : 'desc');
         }, function ($query) {
             return $query->orderByDesc('id');
+        })->when($search, function ($query, $search) {
+            return $query->where('marque', 'like', "%{$search}%")
+                ->orWhere('modele', 'like', "%{$search}%")
+                ->orWhere('modele', 'like', "%{$search}%")
+                ->orWhere('annee', 'like', "%{$search}%")
+                ->orWhere('energie', 'like', "%{$search}%")
+                ->orWhere('bdv', 'like', "%{$search}%")
+                ->orWhere('ce', 'like', "%{$search}%")
+                ->orWhere('description', 'like', "%{$search}%")
+                ->orWhere('option1', 'like', "%{$search}%")
+                ->orWhere('option2', 'like', "%{$search}%")
+                ->orWhere('option3', 'like', "%{$search}%")
+                ->orWhere('option4', 'like', "%{$search}%");
         })->paginate(9);
 
-
-//        $vehicules = Vehicules::get()->all();
         return view('vehicules', compact('vehicules'));
     }
 

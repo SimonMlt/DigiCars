@@ -1,23 +1,24 @@
 @extends('layouts.app')
 
 @section('content')
-{{--    <div class="container mt-5">--}}
-{{--                <div class="row">--}}
-{{--                    @foreach ($vehicules as $vehicule)--}}
-{{--                        <div class="col-sm-4">--}}
-{{--                            <div class="card mt-5 mb-5" style="width: 18rem;">--}}
-{{--                                <div class="card-body">--}}
-{{--                                    <h5 class="card-title text-center">{{ $vehicule->marque }}</h5>--}}
-{{--                                    <p class="card-text">{{ $vehicule->modele }}</p>--}}
-{{--                                </div>--}}
-{{--                            </div>--}}
-{{--                        </div>--}}
-{{--                    @endforeach--}}
-{{--                </div>--}}
-{{--    </div>--}}
+    {{--    <div class="container mt-5">--}}
+    {{--                <div class="row">--}}
+    {{--                    @foreach ($vehicules as $vehicule)--}}
+    {{--                        <div class="col-sm-4">--}}
+    {{--                            <div class="card mt-5 mb-5" style="width: 18rem;">--}}
+    {{--                                <div class="card-body">--}}
+    {{--                                    <h5 class="card-title text-center">{{ $vehicule->marque }}</h5>--}}
+    {{--                                    <p class="card-text">{{ $vehicule->modele }}</p>--}}
+    {{--                                </div>--}}
+    {{--                            </div>--}}
+    {{--                        </div>--}}
+    {{--                    @endforeach--}}
+    {{--                </div>--}}
+    {{--    </div>--}}
 
     <!-- ***** Call to Action Start ***** -->
-    <section class="section section-bg" id="call-to-action" style="background-image: url({{ asset('assets/images/banner-image-1-1920x500.jpg') }})">
+    <section class="section section-bg" id="call-to-action"
+             style="background-image: url({{ asset('assets/images/banner-image-1-1920x500.jpg') }})">
         <div class="container">
             <div class="row">
                 <div class="col-lg-10 offset-lg-1">
@@ -47,7 +48,7 @@
                                 <select name="marque">
                                     <option value="">-- Tous --</option>
                                     @foreach(\App\Vehicules::select('marque')->distinct()->get() as $marque){
-                                        <option value="{{ $marque->marque }}">{{ $marque->marque }}</option>
+                                    <option value="{{ $marque->marque }}">{{ $marque->marque }}</option>
                                     @endforeach
                                 </select>
                             </div>
@@ -112,41 +113,50 @@
                     </div>
                     <br>
                     <br>
-                </form>
-                <form action="{{ route('vehicules') }}" method="GET">
-                    <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12" >
-                    <input type="text" placeholder="Rechercher" name="search" required/>
+                    <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12" style="width: 80%;margin-left:75%;">
+                        <input type="text" placeholder="Rechercher" name="search"/>
                     </div>
                 </form>
+                {{--                <form action="{{ route('vehicules') }}" method="GET">--}}
+                {{--                    <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12" style="width: 80%;margin-left:75%;">--}}
+                {{--                        <input type="text" placeholder="Rechercher" name="search" required/>--}}
+                {{--                    </div>--}}
+                {{--                </form>--}}
             </div>
 
             <div class="row">
-                @foreach ($vehicules as $vehicule)
-                <div class="col-lg-4">
-                    <div class="trainer-item">
-                        <div class="image-thumb" style="height:200px;">
-                            <img src="{{ asset('storage/files/'.$vehicule->filename) }}" alt="">
-                        </div>
-                        <div class="down-content">
+                @if($vehicules->isNotEmpty())
+                    @foreach ($vehicules as $vehicule)
+                        <div class="col-lg-4">
+                            <div class="trainer-item">
+                                <div class="image-thumb" style="height:200px;">
+                                    <img src="{{ asset('storage/files/'.$vehicule->filename) }}" alt="">
+                                </div>
+                                <div class="down-content">
                             <span>
                                 {{ $vehicule->prix }} €
                             </span>
 
-                            <h4>{{ $vehicule->marque }} - {{ $vehicule->modele }}</h4>
+                                    <h4>{{ $vehicule->marque }} - {{ $vehicule->modele }}</h4>
 
-                            <p>
-                                <i class="fa fa-calendar"></i> {{ $vehicule->annee }} &nbsp;&nbsp;&nbsp;
-                                <i class="fa fa-cube"></i> {{ $vehicule->puissancedin }} cc &nbsp;&nbsp;&nbsp;
-                                <i class="fa fa-cog"></i> {{ $vehicule->bdv }} &nbsp;&nbsp;&nbsp;
-                            </p>
+                                    <p>
+                                        <i class="fa fa-calendar"></i> {{ $vehicule->annee }} &nbsp;&nbsp;&nbsp;
+                                        <i class="fa fa-cube"></i> {{ $vehicule->puissancedin }} cc &nbsp;&nbsp;&nbsp;
+                                        <i class="fa fa-cog"></i> {{ $vehicule->bdv }} &nbsp;&nbsp;&nbsp;
+                                    </p>
 
-                            <ul class="social-icons">
-                                <li><a href="{{ url('vehicules/details/'.$vehicule->id) }}">En savoir +</a></li>
-                            </ul>
+                                    <ul class="social-icons">
+                                        <li><a href="{{ url('vehicules/details/'.$vehicule->id) }}">En savoir +</a></li>
+                                    </ul>
+                                </div>
+                            </div>
                         </div>
+                    @endforeach
+                @else
+                    <div>
+                        <h2>Recherche introuvable</h2>
                     </div>
-                </div>
-                @endforeach
+                @endif
             </div>
 
             <br>
