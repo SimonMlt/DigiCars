@@ -84,7 +84,7 @@
                                    aria-haspopup="true" aria-expanded="false">{{ Auth::user()->name }}</a>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ url('account/edit/'.Auth::user()->id) }}">Modifier mon profile</a>
+                                    <a class="dropdown-item" href="{{ url('account/edit/'.Auth::user()->id) }}">Voir mon profil</a>
                                     @if(Auth::user()->is_admin)
                                         <a class="dropdown-item" href="{{ route('adminvehicules') }}">Nos voitures</a>
                                         <a class="dropdown-item" href="{{ route('admindevis') }}">Liste des devis</a>
@@ -92,7 +92,7 @@
                                         <a class="dropdown-item" href="{{ route('backreservationsdates') }}">Gestion des réservations</a>
                                     @endif
                                     <a class="dropdown-item" href="{{ route('devisliste') }}">Mes devis</a>
-                                    
+
                                     <a class="dropdown-item" href="{{ route('demandesliste') }}">Mes demandes</a>
                                     <a class="dropdown-item" href="{{ route('reservationsliste') }}">Mes réservations</a>
                                     <a class="dropdown-item" href="{{ route('logout') }}"

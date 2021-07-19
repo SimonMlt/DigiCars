@@ -47,6 +47,7 @@ Route::get('demandes', 'DemandesController@index2')->name('demandesliste');
 //Edit User
 Route::get('account/edit/{id}', 'AccountController@edit')->name('edituser');
 Route::post('account/edit/{id}', 'AccountController@update');
+Route::delete('account/delete/{id}', 'AccountController@destroy');
 
 // Partie Réservation
 Route::get('reservations/dates', 'ReservationController@index')->name('reservationsdates');

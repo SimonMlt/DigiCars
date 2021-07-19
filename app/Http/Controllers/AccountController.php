@@ -19,7 +19,7 @@ class AccountController extends Controller
         // return view('Back/backdevis', compact('devis'));
     }
 
-    
+
     /**
      * Show the form for creating a new resource.
      *
@@ -89,7 +89,7 @@ class AccountController extends Controller
         $attributes = request()->validate([
             'name' => 'required',
             'email' => 'required',
-            
+
         ]);
         $account = User::findOrFail($id);
         $account->update($attributes);
@@ -104,8 +104,8 @@ class AccountController extends Controller
      */
     public function destroy($id)
     {
-        // $account = User::findOrFail($id);
-        // $account->delete();
-        // return redirect()->route('/');
+        $account = User::findOrFail($id);
+        $account->delete();
+        return redirect('/');
     }
 }
