@@ -21,7 +21,11 @@
                         <button style="margin-top: 20px" type="submit" class="btn btn-primary float-right">Mettre à jour</button>
                     </div>
                 </form>
-                 --}}
+                {{-- <form action="{{ url('reservations/liste/delete/'.$account->id) }}" method="POST">
+                    @csrf
+                    @method('DELETE')
+                    <button style="margin-top: 20px" class="btn btn-danger mb-4 mr-4 float-right" type="submit">Supprimer</button>
+                </form> --}}
             </div>
         </div>
     </div>

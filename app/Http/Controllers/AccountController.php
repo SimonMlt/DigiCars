@@ -74,7 +74,7 @@ class AccountController extends Controller
     public function edit($id)
     {
         $account = User::findOrFail($id);
-        return view ('editaccount', compact('users'));
+        return view ('editaccount', compact('account'));
     }
 
     /**
@@ -93,7 +93,7 @@ class AccountController extends Controller
         ]);
         $account = User::findOrFail($id);
         $account->update($attributes);
-        return redirect()->route('/');
+        return redirect('/');
     }
 
     /**

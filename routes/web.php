@@ -45,7 +45,7 @@ Route::post('demandes/create', 'DemandesController@store');
 Route::get('demandes', 'DemandesController@index2')->name('demandesliste');
 
 //Edit User
-Route::get('account/edit/{id}', 'AccountController@edit');
+Route::get('account/edit/{id}', 'AccountController@edit')->name('edituser');
 Route::post('account/edit/{id}', 'AccountController@update');
 
 // Partie Réservation
