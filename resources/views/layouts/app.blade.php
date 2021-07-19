@@ -87,11 +87,13 @@
                                     @if(Auth::user()->is_admin)
                                         <a class="dropdown-item" href="{{ route('adminvehicules') }}">Nos voitures</a>
                                         <a class="dropdown-item" href="{{ route('admindevis') }}">Liste des devis</a>
+                                        <a class="dropdown-item" href="{{ route('admindemandes') }}">Gestion des demandes</a>
                                         <a class="dropdown-item" href="{{ route('backreservationsdates') }}">Gestion des réservations</a>
                                     @endif
-                                        <a class="dropdown-item" href="{{ route('devisliste') }}">Mes devis</a>
-                                        <a class="dropdown-item" href="{{ route('reservationsliste') }}">Mes réservations</a>
-                                        <a class="dropdown-item" href="{{ route('logout') }}"
+                                    <a class="dropdown-item" href="{{ route('devisliste') }}">Mes devis</a>
+                                    <a class="dropdown-item" href="{{ route('demandesliste') }}">Mes demandes</a>
+                                    <a class="dropdown-item" href="{{ route('reservationsliste') }}">Mes réservations</a>
+                                    <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                                         {{ __('Se déconnecter') }}

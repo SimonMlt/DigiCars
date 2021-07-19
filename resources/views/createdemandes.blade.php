@@ -27,7 +27,7 @@
 
                 <div class="form-group">
                     <label>Message : *</label>
-                    <textarea name="message" id="message" class="form-control"></textarea>
+                    <textarea name="message" id="message" rows=7 class="form-control"></textarea>
                 </div>
 
                 <button type="submit" class="btn btn-primary float-right">Envoyer ma demande</button>

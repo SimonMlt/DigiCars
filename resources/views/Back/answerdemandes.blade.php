@@ -26,10 +26,11 @@
         <form method="POST" action="{{ url('admin/demandes/reponse/'.$demandes->id) }}">
             @csrf
             <div class="col-md-6 offset-md-3">
+                <input type="hidden" name="status" value="Terminée">
                 <div class="form-group">
                     <div class="form-group">
-                        <label>Nom : *</label>
-                        <input type="text" name="name" id="name" class="form-control" value="{{ $demandes->name }}">
+                        <label>Réponse : *</label>
+                        <textarea name="answer" id="answer" rows=7 class="form-control"></textarea>
                     </div>
                 </div>
                 <button type="submit" class="btn btn-primary float-right">Répondre</button>
