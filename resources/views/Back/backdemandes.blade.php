@@ -2,10 +2,8 @@
 
 @section('content')
     <div class="container mt-5">
-        <h1 style="padding: 20px 0">Mes demandes</h1>
-        <div style="padding-top: 20px;padding-bottom: 20px;">
-            <a href="{{ url('demandes/create') }}"><button style="float: left;margin-left: 20px;" class="btn btn-primary">Créer une demande</button></a><br><br>
-        </div>
+        <h1 style="padding: 20px 0">Liste des demandes</h1>
+
         <table class="table" style="text-align: center">
             <thead>
             <tr>
@@ -16,6 +14,7 @@
                 <th scope="col">Message</th>
                 <th scope="col">Statut</th>
                 <th scope="col">Réponse</th>
+                <th></th>
             </tr>
             </thead>
             <tbody>
@@ -28,6 +27,7 @@
                     <th>{{ $demande->message }}</th>
                     <th>{{ $demande->status }}</th>
                     <th>{{ $demande->answer }}</th>
+                    <th><a href="{{ url('admin/demandes/answer/'.$demande->id) }}">Répondre</a></th>
                 </tr>
             @endforeach
             </tbody>

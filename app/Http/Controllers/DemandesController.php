@@ -17,7 +17,8 @@ class DemandesController extends Controller
      */
     public function index()
     {
-
+        $demandes = Demandes::orderBy('created_at', 'desc')->get()->all();
+        return view('Back/backdemandes', compact('demandes'));
     }
 
     public function index2()
@@ -77,7 +78,8 @@ class DemandesController extends Controller
      */
     public function edit($id)
     {
-
+        $demandes = Demandes::findOrFail($id);
+        return view ('Back/answerdemandes', compact('demandes'));
     }
 
     /**
@@ -89,7 +91,13 @@ class DemandesController extends Controller
      */
     public function update(Request $request, $id)
     {
-
+        $attributes = request()->validate([
+            'status' => 'required',
+            'answer' => 'required',
+        ]);
+        $demandes = Demandes::findOrFail($id);
+        $demandes->update($attributes);
+        return redirect()->route('admindemandes');
     }
 
     /**
