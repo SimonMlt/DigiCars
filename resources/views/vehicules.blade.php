@@ -113,6 +113,11 @@
                     <br>
                     <br>
                 </form>
+                <form action="{{ route('vehicules') }}" method="GET">
+                    <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12" >
+                    <input type="text" placeholder="Rechercher" name="search" required/>
+                    </div>
+                </form>
             </div>
 
             <div class="row">
