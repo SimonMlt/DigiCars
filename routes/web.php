@@ -18,6 +18,9 @@ Route::get('/', function () {
     return view('home');
 })->name('index');
 
+// CGU
+Route::get('/cgu', 'CguController@index')->name('cgu');
+
 // Authentification
 Auth::routes();
 
@@ -100,6 +103,5 @@ Route::delete('admin/devis/delete/{id}', 'EchangesController@destroy');
 });
 
 // Partie Echanges
-Route::get('devis', 'EchangesController@index2');
+Route::get('devis', 'EchangesController@index2')->name('devisliste');
 Route::get('admin/devis/{id}', 'EchangesController@show');
-
